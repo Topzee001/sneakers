@@ -6,6 +6,7 @@ class Sneaker {
   final String category;
   final int quantity;
   final String uniqueId;
+  final String? description;
 
   Sneaker({
     required this.category,
@@ -15,6 +16,7 @@ class Sneaker {
     required this.price,
     this.quantity = 1,
     required this.uniqueId,
+    this.description,
   });
 
   factory Sneaker.fromJson(Map<String, dynamic> json) {
@@ -23,7 +25,9 @@ class Sneaker {
         ? 'https://api.timbu.cloud/images/${photos[0]['url']}'
         : '';
     final price = json['current_price']?[0]['NGN']?[0]?.toDouble() ?? 0.0;
-    final category = json['categories'][0]['name'];
+    //final category = json['categories'][0]['name'];
+    final ctg = json['categories'];
+    final category = ctg.isEmpty ? "" : ctg[0]?['name']?.toString() ?? "0";
     return Sneaker(
       id: json['id'],
       name: json['name'] ?? 'Unknown Sneaker',
@@ -32,6 +36,7 @@ class Sneaker {
       price: price,
       uniqueId: json['unique_id'],
       quantity: 1,
+      description: json['description'] ?? 'No description available',
     );
   }
 }

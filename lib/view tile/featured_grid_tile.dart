@@ -8,11 +8,11 @@ import '../constants/svg_icons.dart';
 import '../model/product.dart';
 import '../pages/single_product_page.dart';
 
-class GridViewTile extends StatelessWidget {
+class FeaturedGridTile extends StatelessWidget {
   final Sneaker product;
   final VoidCallback onAddToCart;
 
-  const GridViewTile(
+  const FeaturedGridTile(
       {super.key, required this.product, required this.onAddToCart});
 
   @override
@@ -47,7 +47,7 @@ class GridViewTile extends StatelessWidget {
                       aspectRatio: 1,
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Color.fromRGBO(234, 234, 234, 0.4),
+                          color: Colors.grey.shade200,
                           borderRadius: BorderRadius.circular(12),
                         ),
                         padding: const EdgeInsets.all(10),
@@ -94,19 +94,9 @@ class GridViewTile extends StatelessWidget {
                     Column(
                       children: [
                         Text(
-                          '₦ ${product.price.toStringAsFixed(2)}',
+                          '₦${product.price.toStringAsFixed(2)}',
                           style: GoogleFonts.robotoFlex(
                             color: Color.fromRGBO(0, 114, 198, 1),
-                            fontSize: 12,
-                            fontWeight: FontWeight.w600,
-                            height: 14.06 / 12,
-                          ),
-                        ),
-                        Text(
-                          '₦${(product.price + 10000).toStringAsFixed(2)}',
-                          style: GoogleFonts.robotoFlex(
-                            decoration: TextDecoration.lineThrough,
-                            color: Color.fromRGBO(157, 157, 157, 1),
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
                             height: 14.06 / 12,

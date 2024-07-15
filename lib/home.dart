@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:sneakers/constants/svg_icons.dart';
 
-import 'home_page.dart';
+import 'pages/home_page.dart';
 
 class MyHome extends StatefulWidget {
   const MyHome({super.key});
@@ -26,40 +28,46 @@ class _MyHomeState extends State<MyHome> {
     });
   }
 
+  Color _iconColor(int index) {
+    return _selectedIndex == index
+        ? Color.fromRGBO(0, 144, 198, 1)
+        : Colors.grey;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('My App'),
-      ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag),
-            label: 'Products',
+            icon: SvgPicture.string(
+              SvgIcons.products,
+              color: _iconColor(1),
+            ),
+            label: 'All Products',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
+            icon: SvgPicture.string(SvgIcons.cart1, color: _iconColor(2)),
             label: 'Cart',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.list_alt),
+            icon: SvgPicture.string(SvgIcons.myOrders, color: _iconColor(3)),
             label: 'My Orders',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: SvgPicture.string(SvgIcons.profile, color: _iconColor(4)),
             label: 'Profile',
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Color.fromRGBO(0, 114, 198, 1),
         unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
         type: BottomNavigationBarType.fixed,

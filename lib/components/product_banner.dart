@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:sneakers/model/product.dart';
 
@@ -47,14 +48,26 @@ final Map<String, ProductBanner> productConfigs = {
 };
 
 Widget _buildProductContent1(Sneaker product) {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
+  return Row(
     children: [
-      Expanded(child: Image.network(product.imageUrl, fit: BoxFit.cover)),
-      Text(product.name,
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
-      Text('₦${product.price.toStringAsFixed(2)}',
-          style: TextStyle(color: Colors.white)),
+      CachedNetworkImage(
+        imageUrl: product.imageUrl,
+        placeholder: (context, url) =>
+            const Center(child: CircularProgressIndicator()),
+        errorWidget: (context, url, error) => Icon(Icons.shop),
+        fit: BoxFit.cover,
+      ),
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          //Expanded(child: Image.network(product.imageUrl, fit: BoxFit.cover)),
+          Text(product.name,
+              style:
+                  TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
+          Text('₦${product.price.toStringAsFixed(2)}',
+              style: TextStyle(color: Colors.white)),
+        ],
+      ),
     ],
   );
 }

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sneakers/home.dart';
 
-import 'home_page.dart';
+import 'pages/home_page.dart';
 import 'provider/cart_provider.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        home: const MyHomePage(),
+        home: const MyHome(),
       ),
     );
   }
