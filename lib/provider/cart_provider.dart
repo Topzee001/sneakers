@@ -7,9 +7,11 @@ class CartProvider with ChangeNotifier {
   final List<Sneaker> _cartItems = [];
   bool _isLoading = false;
   String? _errorMessage;
+  int _quantity = 0;
 
   List<Sneaker> get products => _products;
   List<Sneaker> get cartItems => _cartItems;
+  int get quantity => _quantity;
 
   bool get isLoading => _isLoading;
   String? get errorMessage => _errorMessage;
@@ -27,6 +29,18 @@ class CartProvider with ChangeNotifier {
       _isLoading = false;
       notifyListeners();
     }
+  }
+
+  void increaseQuantity() {
+    _quantity = _quantity++;
+
+    notifyListeners();
+  }
+
+  void decreaseQuantity() {
+    _quantity = _quantity--;
+
+    notifyListeners();
   }
 
   Sneaker? getSneakerById(String id) {

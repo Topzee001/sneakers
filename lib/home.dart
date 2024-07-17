@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sneakers/constants/svg_icons.dart';
 
+import 'pages/cart_page.dart';
 import 'pages/home_page.dart';
+import 'pages/profile.dart';
 
 class MyHome extends StatefulWidget {
-  const MyHome({super.key});
+  const MyHome({super.key, this.initialIndex = 0});
+  final int initialIndex;
 
   @override
   _MyHomeState createState() => _MyHomeState();
@@ -14,12 +17,19 @@ class MyHome extends StatefulWidget {
 class _MyHomeState extends State<MyHome> {
   int _selectedIndex = 0;
 
-  static List<Widget> _widgetOptions = <Widget>[
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _selectedIndex = widget.initialIndex;
+  }
+
+  static final List<Widget> _widgetOptions = <Widget>[
     const MyHomePage(),
     Text('Products Page'),
-    Text('Cart Page'),
+    const MyCart(),
     Text('My Orders Page'),
-    Text('Profile Page'),
+    const MyProfile(),
   ];
 
   void _onItemTapped(int index) {

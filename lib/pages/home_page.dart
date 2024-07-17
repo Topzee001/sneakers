@@ -142,6 +142,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
               //TODO: create special offer products
               Container(
+                height: 621,
+                width: 390,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -155,8 +157,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           color: Color.fromRGBO(0, 0, 0, 1),
                           fontSize: 24,
                           fontWeight: FontWeight.w500,
-                          height: 28.13 /
-                              24, // line-height as a multiplier of font size
+                          height: 28.13 / 24,
                         ),
                       ),
                     ),
@@ -187,80 +188,79 @@ class _MyHomePageState extends State<MyHomePage> {
                               );
                             },
                           ),
-                    const SizedBox(height: 15),
-                    Container(
-                      width: 189,
-                      height: 28,
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        "Featured Sneakers",
-                        style: GoogleFonts.robotoFlex(
-                          color: Color.fromRGBO(0, 0, 0, 1),
-                          fontSize: 24,
-                          fontWeight: FontWeight.w500,
-                          height: 28.13 / 24,
-                        ),
-                      ),
-                    ),
-                    GridView.builder(
-                      physics: NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        childAspectRatio: 2 / 3,
-                      ),
-                      itemCount: initialFeatureSneakers.length,
-                      padding: EdgeInsets.all(15),
-                      itemBuilder: (context, index) {
-                        final product = featureSneakers[index];
-                        return FeaturedGridTile(
-                            product: product,
-                            onAddToCart: () {
-                              cartProvider.addToCart(product);
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content:
-                                      Text('${product.name} added to cart'),
-                                  duration: const Duration(milliseconds: 1000),
-                                ),
-                              );
-                            });
-                      },
-                    ),
-                    if (featureSneakers.length > 6 && !showAllProducts)
-                      Center(
-                        child: GestureDetector(
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.fromLTRB(12, 16, 12, 16),
-                              child: Container(
-                                height: 42,
-                                width: 104,
-                                decoration: BoxDecoration(
-                                  color: Color.fromRGBO(0, 114, 198, 1),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                child: Center(
-                                    child: Text(
-                                  'View more',
-                                  style: GoogleFonts.robotoFlex(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w500,
-                                    height: 17.58 / 15,
-                                    color: Color.fromRGBO(255, 255, 255, 1),
-                                  ),
-                                )),
-                              ),
-                            ),
-                            onTap: () {
-                              setState(() {
-                                showAllProducts = true;
-                              });
-                            }),
-                      )
                   ],
                 ),
               ),
+              const SizedBox(height: 15),
+              //create featured products
+              Container(
+                width: 189,
+                height: 28,
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Featured Sneakers",
+                  style: GoogleFonts.robotoFlex(
+                    color: Color.fromRGBO(0, 0, 0, 1),
+                    fontSize: 24,
+                    fontWeight: FontWeight.w500,
+                    height: 28.13 / 24,
+                  ),
+                ),
+              ),
+              GridView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 2 / 3,
+                ),
+                itemCount: initialFeatureSneakers.length,
+                padding: EdgeInsets.all(15),
+                itemBuilder: (context, index) {
+                  final product = featureSneakers[index];
+                  return FeaturedGridTile(
+                      product: product,
+                      onAddToCart: () {
+                        cartProvider.addToCart(product);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text('${product.name} added to cart'),
+                            duration: const Duration(milliseconds: 1000),
+                          ),
+                        );
+                      });
+                },
+              ),
+              if (featureSneakers.length > 6 && !showAllProducts)
+                Center(
+                  child: GestureDetector(
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(12, 16, 12, 16),
+                        child: Container(
+                          height: 42,
+                          width: 104,
+                          decoration: BoxDecoration(
+                            color: Color.fromRGBO(0, 114, 198, 1),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Center(
+                              child: Text(
+                            'View more',
+                            style: GoogleFonts.robotoFlex(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+                              height: 17.58 / 15,
+                              color: Color.fromRGBO(255, 255, 255, 1),
+                            ),
+                          )),
+                        ),
+                      ),
+                      onTap: () {
+                        setState(() {
+                          showAllProducts = true;
+                        });
+                      }),
+                )
             ],
           ),
         ),
@@ -284,9 +284,12 @@ class _MyHomePageState extends State<MyHomePage> {
             return MyProductContainer(
               gradient: config?.gradient ??
                   LinearGradient(
-                    colors: [Colors.grey.shade200, Colors.grey.shade400],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
+                    colors: [
+                      Color(0xFF0072C6).withOpacity(0.8),
+                      Color(0xFF003760).withOpacity(0.9),
+                    ],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
                   ),
               content: config?.contentBuilder(product) ??
                   _buildDefaultContent(product),

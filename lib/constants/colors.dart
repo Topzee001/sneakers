@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class productColors {
+class productColor {
   static const List<Color> color = [
     Color.fromRGBO(255, 165, 0, 1),
     Color.fromRGBO(151, 71, 255, 1),
@@ -11,3 +11,4 @@ class productColors {
     Color.fromRGBO(20, 27, 52, 1),
   ];
 }
+
