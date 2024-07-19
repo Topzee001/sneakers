@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
+import '../model/cart.dart';
 import '../model/product.dart';
 import '../services/product_service.dart';
 
 class CartProvider with ChangeNotifier {
   List<Sneaker> _products = [];
-  final List<Sneaker> _cartItems = [];
+  Map<String, CartItem> _cartItems = {};
   bool _isLoading = false;
   String? _errorMessage;
-  int _quantity = 0;
 
   List<Sneaker> get products => _products;
-  List<Sneaker> get cartItems => _cartItems;
-  int get quantity => _quantity;
+  Map<String, CartItem> get cartItems => _cartItems;
 
   bool get isLoading => _isLoading;
   String? get errorMessage => _errorMessage;
@@ -31,18 +30,6 @@ class CartProvider with ChangeNotifier {
     }
   }
 
-  void increaseQuantity() {
-    _quantity = _quantity++;
-
-    notifyListeners();
-  }
-
-  void decreaseQuantity() {
-    _quantity = _quantity--;
-
-    notifyListeners();
-  }
-
   Sneaker? getSneakerById(String id) {
     try {
       return _products.firstWhere((sneaker) => sneaker.id == id);
@@ -51,14 +38,48 @@ class CartProvider with ChangeNotifier {
     }
   }
 
-  void addToCart(Sneaker product) {
-    _cartItems.add(product);
+  void addToCart(Sneaker sneaker, int quantity) {
+    if (_cartItems.containsKey(sneaker.id)) {
+      _cartItems.update(
+          sneaker.id,
+          (existingItem) => CartItem(
+                product: existingItem.product,
+                quantity: quantity,
+              ));
+    } else {
+      _cartItems.putIfAbsent(
+          sneaker.id,
+          () => CartItem(
+                product: sneaker,
+                quantity: quantity,
+              ));
+    }
     notifyListeners();
   }
 
-  void removeFromCart(Sneaker product) {
-    _cartItems.remove(product);
+  void removeFromCart(String sneakerId) {
+    _cartItems.remove(sneakerId);
     notifyListeners();
+  }
+
+  void updateQuantity(String sneakerId, int newQuantity) {
+    if (_cartItems.containsKey(sneakerId)) {
+      _cartItems.update(
+          sneakerId,
+          (existingItem) => CartItem(
+                product: existingItem.product,
+                quantity: newQuantity,
+              ));
+      notifyListeners();
+    }
+  }
+
+  double updateSingleProductTotalPrice(String sneakerId, int quantity) {
+    Sneaker? sneaker = getSneakerById(sneakerId);
+    if (sneaker == null) {
+      return 0.0;
+    }
+    return sneaker.price * quantity;
   }
 
   void clearCart() {
@@ -68,9 +89,9 @@ class CartProvider with ChangeNotifier {
 
   double get totalPrice {
     double total = 0.0;
-    for (var item in _cartItems) {
-      total += item.price;
-    }
+    _cartItems.forEach((key, cartItem) {
+      total += cartItem.product.price * cartItem.quantity;
+    });
     return total;
   }
 }

@@ -13,9 +13,14 @@ import '../product_container.dart';
 import '../provider/cart_provider.dart';
 import '../view tile/featured_grid_tile.dart';
 import '../view tile/special_grid_tile.dart';
+import 'single_product_page.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+  // final Sneaker product;
+  const MyHomePage({
+    super.key,
+    //required this.product,
+  });
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -25,6 +30,8 @@ class _MyHomePageState extends State<MyHomePage> {
   final ApiService _apiService = ApiService();
   List<Sneaker> specificProducts = [];
   bool showAllProducts = false;
+
+  int get quantityState => 1;
 
   @override
   void initState() {
@@ -56,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: Text("AG-Ezenard", style: GoogleFonts.aclonica(fontSize: 25)),
+        title: Text("AG-Topzee", style: GoogleFonts.aclonica(fontSize: 25)),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 16.0),
@@ -183,7 +190,16 @@ class _MyHomePageState extends State<MyHomePage> {
                               return GridViewTile(
                                 product: product,
                                 onAddToCart: () {
-                                  cartProvider.addToCart(product);
+                                  cartProvider.addToCart(
+                                      product, quantityState);
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content:
+                                          Text('${product.name} added to cart'),
+                                      duration:
+                                          const Duration(milliseconds: 1000),
+                                    ),
+                                  );
                                 },
                               );
                             },
@@ -191,7 +207,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
               ),
-              const SizedBox(height: 15),
+              // const SizedBox(height: 5),
               //create featured products
               Container(
                 width: 189,
@@ -221,7 +237,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   return FeaturedGridTile(
                       product: product,
                       onAddToCart: () {
-                        cartProvider.addToCart(product);
+                        cartProvider.addToCart(product, quantityState);
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text('${product.name} added to cart'),
@@ -282,6 +298,7 @@ class _MyHomePageState extends State<MyHomePage> {
         return Builder(
           builder: (BuildContext context) {
             return MyProductContainer(
+              product: product,
               gradient: config?.gradient ??
                   LinearGradient(
                     colors: [

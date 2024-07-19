@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sneakers/pages/profile.dart';
 
 import '../home.dart';
@@ -14,7 +15,14 @@ class _MyCartState extends State<MyCart> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('My Cart')),
+      appBar: AppBar(
+          title: Text('My Cart',
+              style: GoogleFonts.robotoFlex(
+                fontSize: 19,
+                fontWeight: FontWeight.w600,
+                height: 22.27 / 19,
+                color: Color.fromRGBO(41, 41, 41, 1),
+              ))),
       body: Center(
         child: ElevatedButton(
             onPressed: () {

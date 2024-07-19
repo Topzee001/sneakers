@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../components/favourite_icon.dart';
 import '../constants/svg_icons.dart';
 import '../model/product.dart';
+
 import '../pages/single_product_page.dart';
 
 class FeaturedGridTile extends StatelessWidget {
@@ -22,7 +23,10 @@ class FeaturedGridTile extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => MySingleProductPage(product: product),
+              builder: (context) => MySingleProductPage(
+                product: product,
+                sneakerId: product.id,
+              ),
             ));
       },
       child: Container(

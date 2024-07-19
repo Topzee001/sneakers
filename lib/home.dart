@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sneakers/constants/svg_icons.dart';
 
+import 'pages/all_products.dart';
 import 'pages/cart_page.dart';
 import 'pages/home_page.dart';
 import 'pages/profile.dart';
@@ -26,7 +27,7 @@ class _MyHomeState extends State<MyHome> {
 
   static final List<Widget> _widgetOptions = <Widget>[
     const MyHomePage(),
-    Text('Products Page'),
+    const MyProducts(),
     const MyCart(),
     Text('My Orders Page'),
     const MyProfile(),
