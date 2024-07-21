@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 
 import '../constants/svg_icons.dart';
+import '../model/product.dart';
+import '../provider/cart_provider.dart';
 
 class MyFavourite extends StatefulWidget {
-  const MyFavourite({super.key, this.onTap});
+  const MyFavourite({super.key, this.onTap, required this.sneaker});
 
   final VoidCallback? onTap;
+  final Sneaker sneaker;
 
   @override
   State<MyFavourite> createState() => _MyFavouriteState();
@@ -16,12 +20,17 @@ class _MyFavouriteState extends State<MyFavourite> {
   bool isFavourite = false;
   @override
   Widget build(BuildContext context) {
+    final cartProvider = Provider.of<CartProvider>(context);
+
     return GestureDetector(
       onTap: () {
+        cartProvider.toggleFavourite(widget.sneaker);
         setState(() {
-          isFavourite = !isFavourite;
+          // isFavourite = !isFavourite;
         });
-        widget.onTap;
+        if (widget.onTap != null) {
+          widget.onTap!();
+        }
       },
       child: Padding(
         padding: const EdgeInsets.all(6.4),
@@ -30,20 +39,16 @@ class _MyFavouriteState extends State<MyFavourite> {
           height: 30.8,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(32),
-              color: isFavourite ? Colors.red : Colors.grey.shade700),
-          child: Container(
-            margin: const EdgeInsets.all(8),
-            width: 18,
-            height: 18,
-            child: SvgPicture.string(
-              SvgIcons.likeBox,
-              // ignore: deprecated_member_use
-              color: isFavourite ? Colors.white : Colors.white,
-              fit: BoxFit.fill,
-
-              //fit: BoxFit.cover,
-              height: 18,
-              width: 18,
+              color: cartProvider.isExist(widget.sneaker)
+                  ? Colors.red
+                  : Colors.grey.shade700),
+          child: Center(
+            child: Icon(
+              size: 17,
+              cartProvider.isExist(widget.sneaker)
+                  ? Icons.favorite
+                  : Icons.favorite_border_outlined,
+              color: Colors.white,
             ),
           ),
         ),
@@ -51,3 +56,14 @@ class _MyFavouriteState extends State<MyFavourite> {
     );
   }
 }
+
+// SvgPicture.string(
+//               SvgIcons.likeBox,
+//               // ignore: deprecated_member_use
+//               color: isFavourite ? Colors.white : Colors.white,
+//               fit: BoxFit.fill,
+
+//               //fit: BoxFit.cover,
+//               height: 18,
+//               width: 18,
+//             ),

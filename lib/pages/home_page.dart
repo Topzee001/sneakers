@@ -3,16 +3,18 @@ import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:sneakers/constants/colors.dart';
 import 'package:sneakers/services/product_service.dart';
 
 import '../brand/brands.dart';
 
 import '../components/product_banner.dart';
+import '../constants/sizes.dart';
 import '../model/product.dart';
 import '../product_container.dart';
 import '../provider/cart_provider.dart';
-import '../view tile/featured_grid_tile.dart';
-import '../view tile/special_grid_tile.dart';
+import '../view_tile/featured_grid_tile.dart';
+import '../view_tile/special_grid_tile.dart';
 import 'single_product_page.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -32,6 +34,10 @@ class _MyHomePageState extends State<MyHomePage> {
   bool showAllProducts = false;
 
   int get quantityState => 1;
+
+  String get defaultSize => sizes[0];
+
+  Color get defaultColor => productColor.color[0];
 
   @override
   void initState() {
@@ -65,10 +71,18 @@ class _MyHomePageState extends State<MyHomePage> {
         elevation: 0,
         title: Text("AG-Topzee", style: GoogleFonts.aclonica(fontSize: 25)),
         actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 16.0),
-            child: Icon(Icons.search_sharp),
-          )
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 16.0),
+                child: Icon(Icons.search_sharp),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.history),
+              ),
+            ],
+          ),
         ],
       ),
       body: SingleChildScrollView(
@@ -158,13 +172,15 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: 189,
                       height: 28,
                       alignment: Alignment.centerLeft,
-                      child: Text(
-                        "Our Special Offers",
-                        style: GoogleFonts.robotoFlex(
-                          color: Color.fromRGBO(0, 0, 0, 1),
-                          fontSize: 24,
-                          fontWeight: FontWeight.w500,
-                          height: 28.13 / 24,
+                      child: Center(
+                        child: Text(
+                          "Our Special Offers",
+                          style: GoogleFonts.robotoFlex(
+                            color: Color.fromRGBO(0, 0, 0, 1),
+                            fontSize: 24,
+                            fontWeight: FontWeight.w500,
+                            height: 28.13 / 24,
+                          ),
                         ),
                       ),
                     ),
@@ -190,14 +206,14 @@ class _MyHomePageState extends State<MyHomePage> {
                               return GridViewTile(
                                 product: product,
                                 onAddToCart: () {
-                                  cartProvider.addToCart(
-                                      product, quantityState);
+                                  cartProvider.addToCart(product, quantityState,
+                                      defaultSize, defaultColor);
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
-                                      content:
-                                          Text('${product.name} added to cart'),
+                                      content: Text(
+                                          '${product.name} added to cart (Size: $defaultSize, Default color)'),
                                       duration:
-                                          const Duration(milliseconds: 1000),
+                                          const Duration(milliseconds: 1500),
                                     ),
                                   );
                                 },
@@ -213,13 +229,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: 189,
                 height: 28,
                 alignment: Alignment.centerLeft,
-                child: Text(
-                  "Featured Sneakers",
-                  style: GoogleFonts.robotoFlex(
-                    color: Color.fromRGBO(0, 0, 0, 1),
-                    fontSize: 24,
-                    fontWeight: FontWeight.w500,
-                    height: 28.13 / 24,
+                child: Center(
+                  child: Text(
+                    "Featured Sneakers",
+                    style: GoogleFonts.robotoFlex(
+                      color: Color.fromRGBO(0, 0, 0, 1),
+                      fontSize: 24,
+                      fontWeight: FontWeight.w500,
+                      height: 28.13 / 24,
+                    ),
                   ),
                 ),
               ),
@@ -235,16 +253,19 @@ class _MyHomePageState extends State<MyHomePage> {
                 itemBuilder: (context, index) {
                   final product = featureSneakers[index];
                   return FeaturedGridTile(
-                      product: product,
-                      onAddToCart: () {
-                        cartProvider.addToCart(product, quantityState);
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text('${product.name} added to cart'),
-                            duration: const Duration(milliseconds: 1000),
-                          ),
-                        );
-                      });
+                    product: product,
+                    onAddToCart: () {
+                      cartProvider.addToCart(
+                          product, quantityState, defaultSize, defaultColor);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                              '${product.name} added to cart (Size: $defaultSize, Default color)'),
+                          duration: const Duration(milliseconds: 1500),
+                        ),
+                      );
+                    },
+                  );
                 },
               ),
               if (featureSneakers.length > 6 && !showAllProducts)
@@ -294,7 +315,9 @@ class _MyHomePageState extends State<MyHomePage> {
         autoPlayInterval: Duration(seconds: 3),
       ),
       items: specificProducts.map((product) {
-        final config = productConfigs[product.id];
+        final config = productConfigs[product.uniqueId];
+        print(
+            'Processing product: ${product.uniqueId}, Config found: ${config != null}');
         return Builder(
           builder: (BuildContext context) {
             return MyProductContainer(
@@ -308,24 +331,40 @@ class _MyHomePageState extends State<MyHomePage> {
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight,
                   ),
-              content: config?.contentBuilder(product) ??
-                  _buildDefaultContent(product),
+              content: config != null
+                  ? config.contentBuilder(product)
+                  : buildDefaultContent(product),
             );
           },
         );
       }).toList(),
     );
   }
-
-  Widget _buildDefaultContent(Sneaker product) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(product.name,
-            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
-        Text('₦${product.price.toStringAsFixed(2)}',
-            style: TextStyle(color: Colors.white)),
-      ],
-    );
-  }
 }
+  // Widget _buildDefaultContent(Sneaker product) {
+  //   return Row(
+  //     children: [
+  //       Column(
+  //         mainAxisAlignment: MainAxisAlignment.center,
+  //         children: [
+  //           Text(product.name,
+  //               style: TextStyle(
+  //                   fontWeight: FontWeight.bold, color: Colors.white)),
+  //           Text('₦${product.price.toStringAsFixed(2)}',
+  //               style: TextStyle(color: Colors.white)),
+  //         ],
+  //       ),
+  //       SizedBox(height: 10),
+  //       Container(
+  //         width: 100,
+  //         height: 100,
+  //         decoration: BoxDecoration(
+  //           shape: BoxShape.circle,
+  //           image: DecorationImage(
+  //               image: NetworkImage(product.imageUrl), fit: BoxFit.cover),
+  //         ),
+  //       ),
+  //     ],
+  //   );
+  // }
+//}

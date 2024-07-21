@@ -7,7 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:sneakers/constants/svg_icons.dart';
-import 'package:sneakers/view%20tile/featured_grid_tile.dart';
+import 'package:sneakers/view_tile/featured_grid_tile.dart';
 
 import '../components/add_to_cart_button.dart';
 import '../components/favourite_icon.dart';
@@ -119,7 +119,12 @@ class _MySingleProductPageState extends State<MySingleProductPage> {
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
-                            MyFavourite()
+                            MyFavourite(
+                              sneaker: widget.product,
+                              //                 onTap: () {
+                              //   cartProvider.toggleFavourite(widget.product);
+                              // },
+                            )
                           ],
                         ),
                         const SizedBox(height: 5),
@@ -408,8 +413,11 @@ class _MySingleProductPageState extends State<MySingleProductPage> {
                               return FeaturedGridTile(
                                 product: product,
                                 onAddToCart: () {
-                                  cartProvider.addToCart(
-                                      product, quantityState);
+                                  final selectedSizeValue = sizes[selectedSize];
+                                  final selectedColorValue =
+                                      productColor.color[selectedColor];
+                                  cartProvider.addToCart(product, quantityState,
+                                      selectedSizeValue, selectedColorValue);
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
@@ -457,7 +465,11 @@ class _MySingleProductPageState extends State<MySingleProductPage> {
                 //Spacer(),
                 AddToCart(
                   onAddToCart: () {
-                    cartProvider.addToCart(sneaker, quantityState);
+                    final selectedSizeValue = sizes[selectedSize];
+                    final selectedColorValue =
+                        productColor.color[selectedColor];
+                    cartProvider.addToCart(sneaker, quantityState,
+                        selectedSizeValue, selectedColorValue);
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text('${widget.product.name} added to cart'),

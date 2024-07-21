@@ -5,11 +5,14 @@ import '../services/product_service.dart';
 
 class CartProvider with ChangeNotifier {
   List<Sneaker> _products = [];
+  List<Sneaker> _favourites = [];
+
   Map<String, CartItem> _cartItems = {};
   bool _isLoading = false;
   String? _errorMessage;
 
   List<Sneaker> get products => _products;
+  List<Sneaker> get favourites => _favourites;
   Map<String, CartItem> get cartItems => _cartItems;
 
   bool get isLoading => _isLoading;
@@ -38,13 +41,32 @@ class CartProvider with ChangeNotifier {
     }
   }
 
-  void addToCart(Sneaker sneaker, int quantity) {
+  void toggleFavourite(Sneaker sneaker) {
+    if (_favourites.contains(sneaker)) {
+      _favourites.remove(sneaker);
+    } else {
+      _favourites.add(sneaker);
+    }
+
+    notifyListeners();
+  }
+
+  bool isExist(Sneaker sneaker) {
+    final isExist = _favourites.contains(sneaker);
+    return isExist;
+  }
+
+
+
+  void addToCart(Sneaker sneaker, int quantity, String size, Color color) {
     if (_cartItems.containsKey(sneaker.id)) {
       _cartItems.update(
           sneaker.id,
           (existingItem) => CartItem(
                 product: existingItem.product,
                 quantity: quantity,
+                size: size,
+                color: color,
               ));
     } else {
       _cartItems.putIfAbsent(
@@ -52,6 +74,8 @@ class CartProvider with ChangeNotifier {
           () => CartItem(
                 product: sneaker,
                 quantity: quantity,
+                size: size,
+                color: color,
               ));
     }
     notifyListeners();
@@ -69,6 +93,8 @@ class CartProvider with ChangeNotifier {
           (existingItem) => CartItem(
                 product: existingItem.product,
                 quantity: newQuantity,
+                size: existingItem.size,
+                color: existingItem.color,
               ));
       notifyListeners();
     }

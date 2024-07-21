@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:sneakers/constants/colors.dart';
 import 'package:sneakers/provider/cart_provider.dart';
-import 'package:sneakers/view%20tile/featured_grid_tile.dart';
+import 'package:sneakers/view_tile/featured_grid_tile.dart';
+
+import '../constants/sizes.dart';
 
 class MyProducts extends StatefulWidget {
   const MyProducts({super.key});
@@ -13,6 +16,8 @@ class MyProducts extends StatefulWidget {
 
 class _MyProductsState extends State<MyProducts> {
   int get quantityState => 1;
+  String get defaultSize => sizes[0];
+  Color get defaultColor => productColor.color[0];
 
   @override
   Widget build(BuildContext context) {
@@ -70,16 +75,19 @@ class _MyProductsState extends State<MyProducts> {
                     itemBuilder: (context, index) {
                       final product = cartProvider.products[index];
                       return FeaturedGridTile(
-                          product: product,
-                          onAddToCart: () {
-                            cartProvider.addToCart(product, quantityState);
-                            //ScaffoldMessenger.of(context).showSnackBar(
-                            // SnackBar(
-                            //   content: Text('${widget.} added to cart'),
-                            //   duration: const Duration(milliseconds: 1000),
-                            // ),
-                            // );
-                          });
+                        product: product,
+                        onAddToCart: () {
+                          cartProvider.addToCart(product, quantityState,
+                              defaultSize, defaultColor);
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                  '${product.name} added to cart (Size: $defaultSize, Default color)'),
+                              duration: const Duration(milliseconds: 1000),
+                            ),
+                          );
+                        },
+                      );
                     }));
   }
 }

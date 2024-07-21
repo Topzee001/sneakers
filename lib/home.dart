@@ -5,7 +5,8 @@ import 'package:sneakers/constants/svg_icons.dart';
 import 'pages/all_products.dart';
 import 'pages/cart_page.dart';
 import 'pages/home_page.dart';
-import 'pages/profile.dart';
+import 'pages/order_history_page.dart';
+import 'pages/wishlist_page.dart';
 
 class MyHome extends StatefulWidget {
   const MyHome({super.key, this.initialIndex = 0});
@@ -28,9 +29,9 @@ class _MyHomeState extends State<MyHome> {
   static final List<Widget> _widgetOptions = <Widget>[
     const MyHomePage(),
     const MyProducts(),
+    const MyWishlist(),
     const MyCart(),
-    Text('My Orders Page'),
-    const MyProfile(),
+    MyCompletedOrders(),
   ];
 
   void _onItemTapped(int index) {
@@ -54,27 +55,24 @@ class _MyHomeState extends State<MyHome> {
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: SvgPicture.string(SvgIcons.home, color: _iconColor(0)),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.string(
-              SvgIcons.products,
-              color: _iconColor(1),
-            ),
+            icon: SvgPicture.string(SvgIcons.products, color: _iconColor(1)),
             label: 'All Products',
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.string(SvgIcons.cart1, color: _iconColor(2)),
+            icon: SvgPicture.string(SvgIcons.wishlist, color: _iconColor(2)),
+            label: 'Wishlist',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.string(SvgIcons.cart1, color: _iconColor(3)),
             label: 'Cart',
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.string(SvgIcons.myOrders, color: _iconColor(3)),
+            icon: SvgPicture.string(SvgIcons.myOrders, color: _iconColor(4)),
             label: 'My Orders',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.string(SvgIcons.profile, color: _iconColor(4)),
-            label: 'Profile',
           ),
         ],
         currentIndex: _selectedIndex,

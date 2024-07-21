@@ -2,22 +2,25 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 import '../components/favourite_icon.dart';
 import '../constants/svg_icons.dart';
 import '../model/product.dart';
 
 import '../pages/single_product_page.dart';
+import '../provider/cart_provider.dart';
 
-class FeaturedGridTile extends StatelessWidget {
+class GridViewTile extends StatelessWidget {
   final Sneaker product;
   final VoidCallback onAddToCart;
 
-  const FeaturedGridTile(
+  const GridViewTile(
       {super.key, required this.product, required this.onAddToCart});
 
   @override
   Widget build(BuildContext context) {
+    final cartProvider = Provider.of<CartProvider>(context);
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -51,7 +54,7 @@ class FeaturedGridTile extends StatelessWidget {
                       aspectRatio: 1,
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Colors.grey.shade200,
+                          color: Color.fromRGBO(234, 234, 234, 0.4),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         padding: const EdgeInsets.all(10),
@@ -98,9 +101,19 @@ class FeaturedGridTile extends StatelessWidget {
                     Column(
                       children: [
                         Text(
-                          '₦${product.price.toStringAsFixed(2)}',
+                          '₦ ${product.price.toStringAsFixed(2)}',
                           style: GoogleFonts.robotoFlex(
                             color: Color.fromRGBO(0, 114, 198, 1),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                            height: 14.06 / 12,
+                          ),
+                        ),
+                        Text(
+                          '₦${(product.price + 10000).toStringAsFixed(2)}',
+                          style: GoogleFonts.robotoFlex(
+                            decoration: TextDecoration.lineThrough,
+                            color: Color.fromRGBO(157, 157, 157, 1),
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
                             height: 14.06 / 12,
@@ -130,7 +143,12 @@ class FeaturedGridTile extends StatelessWidget {
             Positioned(
               top: 0,
               right: 0,
-              child: const MyFavourite(),
+              child: MyFavourite(
+                sneaker: product,
+                // onTap: () {
+                //   cartProvider.toggleFavourite(product);
+                // },
+              ),
             )
           ],
         ),
