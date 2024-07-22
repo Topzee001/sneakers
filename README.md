@@ -55,7 +55,7 @@ The app is currently in development. The following features have been implemente
 
 ## Appetize.io Demo
 
-- coming soon
+- [App Simulation Demo] (https://appetize.io/app/b_anhispranbnptcttm5pqp47d3i)
 
  ## Technologies Used
 
@@ -63,6 +63,7 @@ The app is currently in development. The following features have been implemente
 - Dart
 - Timbu API
 - Provider package
+- Figma
 
 ## GitHub Repository
 ````sh
