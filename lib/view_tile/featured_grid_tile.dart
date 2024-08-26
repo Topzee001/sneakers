@@ -135,9 +135,7 @@ class FeaturedGridTile extends StatelessWidget {
               right: 0,
               child: MyFavourite(
                 sneaker: product,
-                // onTap: () {
-                //   cartProvider.toggleFavourite(product);
-                // },
+               
               ),
             )
           ],

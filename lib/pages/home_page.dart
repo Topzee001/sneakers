@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:sneakers/constants/colors.dart';
+import 'package:sneakers/home.dart';
 import 'package:sneakers/services/product_service.dart';
 
 import '../brand/brands.dart';
@@ -15,7 +16,6 @@ import '../product_container.dart';
 import '../provider/cart_provider.dart';
 import '../view_tile/featured_grid_tile.dart';
 import '../view_tile/special_grid_tile.dart';
-import 'single_product_page.dart';
 
 class MyHomePage extends StatefulWidget {
   // final Sneaker product;
@@ -38,6 +38,8 @@ class _MyHomePageState extends State<MyHomePage> {
   String get defaultSize => sizes[0];
 
   Color get defaultColor => productColor.color[0];
+  
+  int _currentCarouselIndex = 0;
 
   @override
   void initState() {
@@ -78,7 +80,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Icon(Icons.search_sharp),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MyHome(
+                        initialIndex: 4,
+                      ),
+                    ),
+                  );
+                },
                 icon: Icon(Icons.history),
               ),
             ],
@@ -306,65 +317,59 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _buildBannerCarousel() {
-    return CarouselSlider(
-      options: CarouselOptions(
-        height: 200,
-        viewportFraction: 0.9,
-        enlargeCenterPage: true,
-        autoPlay: true,
-        autoPlayInterval: Duration(seconds: 3),
-      ),
-      items: specificProducts.map((product) {
-        final config = productConfigs[product.uniqueId];
-        print(
-            'Processing product: ${product.uniqueId}, Config found: ${config != null}');
-        return Builder(
-          builder: (BuildContext context) {
-            return MyProductContainer(
-              product: product,
-              gradient: config?.gradient ??
-                  LinearGradient(
-                    colors: [
-                      Color(0xFF0072C6).withOpacity(0.8),
-                      Color(0xFF003760).withOpacity(0.9),
-                    ],
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                  ),
-              content: config != null
-                  ? config.contentBuilder(product)
-                  : buildDefaultContent(product),
+    return Column(
+      children: [
+        CarouselSlider(
+          options: CarouselOptions(
+            height: 200,
+            viewportFraction: 0.9,
+            enlargeCenterPage: true,
+            autoPlay: true,
+            autoPlayInterval: Duration(seconds: 3),
+          ),
+          items: specificProducts.map((product) {
+            final config = productConfigs[product.uniqueId];
+            print(
+                'Processing product: ${product.uniqueId}, Config found: ${config != null}');
+            return Builder(
+              builder: (BuildContext context) {
+                return MyProductContainer(
+                  product: product,
+                  gradient: config?.gradient ??
+                      LinearGradient(
+                        colors: [
+                          Color(0xFF0072C6).withOpacity(0.8),
+                          Color(0xFF003760).withOpacity(0.9),
+                        ],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                      ),
+                  content: config != null
+                      ? config.contentBuilder(product)
+                      : buildDefaultContent(product),
+                );
+              },
             );
-          },
-        );
-      }).toList(),
+          }).toList(),
+        ),
+        SizedBox(height: 5),
+Row(
+mainAxisAlignment: MainAxisAlignment.center,
+        children: specificProducts.asMap().entries.map((entry) {
+          return Container(
+            width: 8.0,
+            height: 8.0,
+            margin: EdgeInsets.symmetric(horizontal: 4.0),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.blue.withOpacity(
+                _currentCarouselIndex == entry.key ? 0.9 : 0.4,
+              ),
+            ),
+          );
+        }
+).toList(),),
+      ],
     );
   }
 }
-  // Widget _buildDefaultContent(Sneaker product) {
-  //   return Row(
-  //     children: [
-  //       Column(
-  //         mainAxisAlignment: MainAxisAlignment.center,
-  //         children: [
-  //           Text(product.name,
-  //               style: TextStyle(
-  //                   fontWeight: FontWeight.bold, color: Colors.white)),
-  //           Text('₦${product.price.toStringAsFixed(2)}',
-  //               style: TextStyle(color: Colors.white)),
-  //         ],
-  //       ),
-  //       SizedBox(height: 10),
-  //       Container(
-  //         width: 100,
-  //         height: 100,
-  //         decoration: BoxDecoration(
-  //           shape: BoxShape.circle,
-  //           image: DecorationImage(
-  //               image: NetworkImage(product.imageUrl), fit: BoxFit.cover),
-  //         ),
-  //       ),
-  //     ],
-  //   );
-  // }
-//}

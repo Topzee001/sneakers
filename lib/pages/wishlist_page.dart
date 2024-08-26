@@ -96,6 +96,13 @@ class MyWishlist extends StatelessWidget {
                       onAddToCart: () {
                         cartProvider.addToCart(
                             product, quantityState, defaultSize, defaultColor);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                                '${product.name} added to cart (Size: $defaultSize, Default color)'),
+                            duration: const Duration(milliseconds: 1500),
+                          ),
+                        );
                       });
                 },
               ));

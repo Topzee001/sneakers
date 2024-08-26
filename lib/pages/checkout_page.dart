@@ -45,14 +45,31 @@ class MyCheckout extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text(
-                      'Order list',
-                      style: GoogleFonts.robotoFlex(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
-                        height: 17.58 / 15,
-                        color: Color.fromRGBO(41, 41, 41, 1),
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Order list',
+                          style: GoogleFonts.robotoFlex(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                            height: 17.58 / 15,
+                            color: Color.fromRGBO(41, 41, 41, 1),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 20.0),
+                          child: Text(
+                            'Edit',
+                            style: GoogleFonts.robotoFlex(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600,
+                              height: 17.58 / 15,
+                              color: Color.fromRGBO(0, 114, 198, 1),
+                            ),
+                          ),
+                        )
+                      ],
                     ),
                     const SizedBox(height: 5),
                     ListView.builder(
@@ -84,14 +101,28 @@ class MyCheckout extends StatelessWidget {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(top: 8.0),
-                            child: Text(
-                              'Personal information',
-                              style: GoogleFonts.robotoFlex(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500,
-                                height: 17.58 / 15,
-                                color: Color.fromRGBO(41, 41, 41, 1),
-                              ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Personal information',
+                                  style: GoogleFonts.robotoFlex(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w500,
+                                    height: 17.58 / 15,
+                                    color: Color.fromRGBO(41, 41, 41, 1),
+                                  ),
+                                ),
+                                Text(
+                                  'Edit',
+                                  style: GoogleFonts.robotoFlex(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600,
+                                    height: 17.58 / 15,
+                                    color: Color.fromRGBO(0, 114, 198, 1),
+                                  ),
+                                )
+                              ],
                             ),
                           ),
                           Container(
@@ -155,14 +186,28 @@ class MyCheckout extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'Delivery Option',
-                            style: GoogleFonts.robotoFlex(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                              height: 17.58 / 15,
-                              color: Color.fromRGBO(42, 42, 42, 1),
-                            ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Delivery Option',
+                                style: GoogleFonts.robotoFlex(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w500,
+                                  height: 17.58 / 15,
+                                  color: Color.fromRGBO(42, 42, 42, 1),
+                                ),
+                              ),
+                              Text(
+                                'Edit',
+                                style: GoogleFonts.robotoFlex(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600,
+                                  height: 17.58 / 15,
+                                  color: Color.fromRGBO(0, 114, 198, 1),
+                                ),
+                              )
+                            ],
                           ),
                           Container(
                             decoration: BoxDecoration(

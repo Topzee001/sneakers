@@ -1,9 +1,7 @@
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:sneakers/pages/wishlist_page.dart';
 import 'package:sneakers/provider/cart_provider.dart';
 import 'package:sneakers/view_tile/cart_item_tile.dart';
 

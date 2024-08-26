@@ -1,8 +1,6 @@
-import 'dart:math';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +13,6 @@ import '../constants/colors.dart';
 import '../constants/sizes.dart';
 import '../model/product.dart';
 import '../provider/cart_provider.dart';
-import 'cart_page.dart';
 
 class MySingleProductPage extends StatefulWidget {
   const MySingleProductPage({

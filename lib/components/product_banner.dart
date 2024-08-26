@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sneakers/model/product.dart';
 
-import 'add_to_cart_button.dart';
 import 'banner_addto_cart.dart';
 
 class ProductBanner {

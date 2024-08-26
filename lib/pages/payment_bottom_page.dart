@@ -71,7 +71,9 @@ class _MyPaymentState extends State<MyPayment> {
                   ),
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   icon: Icon(Icons.close),
                 )
               ],

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sneakers/home.dart';
 
-import 'pages/home_page.dart';
 import 'provider/cart_provider.dart';
 
 void main() {
@@ -17,10 +16,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => CartProvider()..fetchSneakers(),
-      child: MaterialApp(
+      child: const MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        home: const MyHome(),
+        home: MyHome(),
       ),
     );
   }

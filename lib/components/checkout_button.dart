@@ -9,24 +9,27 @@ class MyCheckoutButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Container(
-        width: 97,
-        height: 42,
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        decoration: BoxDecoration(
-          color: Color.fromRGBO(0, 114, 198, 1),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Center(
-            child: Text(
-          'Checkout',
-          style: GoogleFonts.robotoFlex(
-            fontSize: 15,
-            fontWeight: FontWeight.w500,
-            height: 17.54 / 15,
-            color: Color.fromRGBO(255, 255, 255, 1),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          width: 97,
+          height: 42,
+             //   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          decoration: BoxDecoration(
+            color: Color.fromRGBO(0, 114, 198, 1),
+            borderRadius: BorderRadius.circular(8),
           ),
-        )),
+          child: Center(
+              child: Text(
+            'Checkout',
+            style: GoogleFonts.robotoFlex(
+              fontSize: 15,
+              fontWeight: FontWeight.w500,
+              height: 17.54 / 15,
+              color: Color.fromRGBO(255, 255, 255, 1),
+            ),
+          )),
+        ),
       ),
     );
   }
