@@ -69,7 +69,7 @@ class MyCart extends StatelessWidget {
                             cartProvider.updateQuantity(sneakerId, newQuantity);
                           },
                           cartItem: cartItem,
-                          SneakerId: sneakerId,
+                          sneakerId: sneakerId,
                         );
                       },
                     ),

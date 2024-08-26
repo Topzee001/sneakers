@@ -1,5 +1,6 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -96,18 +97,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Row(
                   children: [
                     Container(
-                      width: 49,
-                      height: 48,
+                      width: 49.w,
+                      height: 48.h,
                       decoration: BoxDecoration(
                           color: Color(0xFFE89705),
-                          border:
-                              Border.all(color: Color(0xFFFFA500), width: 2.0),
-                          borderRadius: BorderRadius.circular(46.13)),
+                          border: Border.all(
+                              color: Color(0xFFFFA500), width: 2.0.w),
+                          borderRadius: BorderRadius.circular(46.13.r)),
                       child: Center(
                         child: Text(
                           "AD",
                           style: GoogleFonts.robotoFlex(
-                            fontSize: 19,
+                            fontSize: 19.sp,
                             fontWeight: FontWeight.w500,
                             height: 22.27 / 19.0,
                           ),
@@ -115,27 +116,27 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(left: 4.0),
-                      width: 305,
-                      height: 40,
+                      margin: EdgeInsets.only(left: 4.0.w),
+                      width: 305.w,
+                      height: 40.h,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            width: 305.0, // Width set to 305px
-                            height: 18.0,
+                            width: 305.0.w, // Width set to 305px
+                            height: 18.0.h,
                             child: Text(
                               'Good afternoon👋🏾',
                               style: GoogleFonts.robotoFlex(
                                   color: Color.fromRGBO(112, 112, 112, 1),
                                   fontWeight: FontWeight.w400,
-                                  fontSize: 15,
+                                  fontSize: 15.sp,
                                   height: 17.58 / 15),
                             ),
                           ),
                           Container(
-                            width: 305.0, // Width set to 305px
-                            height: 18.0,
+                            width: 305.0.w, // Width set to 305px
+                            height: 18.0.h,
                             child: Text(
                               'Ada Dennis',
                               style: GoogleFonts.robotoFlex(
@@ -163,23 +164,25 @@ class _MyHomePageState extends State<MyHomePage> {
 
               //TODO: create special offer products
               Container(
-                height: 621,
-                width: 390,
+                height: 621.h,
+                //width: 390.w,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      width: 189,
-                      height: 28,
+                      width: 189.w,
+                      height: 28.h,
                       alignment: Alignment.centerLeft,
                       child: Center(
-                        child: Text(
-                          "Our Special Offers",
-                          style: GoogleFonts.robotoFlex(
-                            color: Color.fromRGBO(0, 0, 0, 1),
-                            fontSize: 24,
-                            fontWeight: FontWeight.w500,
-                            height: 28.13 / 24,
+                        child: FittedBox(
+                          child: Text(
+                            "Our Special Offers",
+                            style: GoogleFonts.robotoFlex(
+                              color: Color.fromRGBO(0, 0, 0, 1),
+                              fontSize: 24,
+                              fontWeight: FontWeight.w500,
+                              height: 28.13 / 24,
+                            ),
                           ),
                         ),
                       ),
@@ -195,7 +198,6 @@ class _MyHomePageState extends State<MyHomePage> {
                               crossAxisCount: 2,
                               childAspectRatio: 2 / 3,
                             ),
-                            padding: const EdgeInsets.all(15),
                             itemCount: specialOffers.length,
                             itemBuilder: (context, index) {
                               if (cartProvider.products.isEmpty) {
@@ -225,18 +227,23 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               // const SizedBox(height: 5),
               //create featured products
-              Container(
-                width: 189,
-                height: 28,
-                alignment: Alignment.centerLeft,
-                child: Center(
-                  child: Text(
-                    "Featured Sneakers",
-                    style: GoogleFonts.robotoFlex(
-                      color: Color.fromRGBO(0, 0, 0, 1),
-                      fontSize: 24,
-                      fontWeight: FontWeight.w500,
-                      height: 28.13 / 24,
+              Padding(
+                padding: const EdgeInsets.only(top: 15),
+                child: Container(
+                  width: 189,
+                  height: 28,
+                  alignment: Alignment.centerLeft,
+                  child: Center(
+                    child: FittedBox(
+                      child: Text(
+                        "Featured Sneakers",
+                        style: GoogleFonts.robotoFlex(
+                          color: Color.fromRGBO(0, 0, 0, 1),
+                          fontSize: 24,
+                          fontWeight: FontWeight.w500,
+                          height: 28.13 / 24,
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -249,7 +256,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   childAspectRatio: 2 / 3,
                 ),
                 itemCount: initialFeatureSneakers.length,
-                padding: EdgeInsets.all(15),
+                //padding: EdgeInsets.all(15),
                 itemBuilder: (context, index) {
                   final product = featureSneakers[index];
                   return FeaturedGridTile(
@@ -308,7 +315,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _buildBannerCarousel() {
     return CarouselSlider(
       options: CarouselOptions(
-        height: 200,
+        height: 200.h,
         viewportFraction: 0.9,
         enlargeCenterPage: true,
         autoPlay: true,
