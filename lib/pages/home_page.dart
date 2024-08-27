@@ -359,30 +359,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-  // Widget _buildDefaultContent(Sneaker product) {
-  //   return Row(
-  //     children: [
-  //       Column(
-  //         mainAxisAlignment: MainAxisAlignment.center,
-  //         children: [
-  //           Text(product.name,
-  //               style: TextStyle(
-  //                   fontWeight: FontWeight.bold, color: Colors.white)),
-  //           Text('₦${product.price.toStringAsFixed(2)}',
-  //               style: TextStyle(color: Colors.white)),
-  //         ],
-  //       ),
-  //       SizedBox(height: 10),
-  //       Container(
-  //         width: 100,
-  //         height: 100,
-  //         decoration: BoxDecoration(
-  //           shape: BoxShape.circle,
-  //           image: DecorationImage(
-  //               image: NetworkImage(product.imageUrl), fit: BoxFit.cover),
-  //         ),
-  //       ),
-  //     ],
-  //   );
-  // }
-//}
