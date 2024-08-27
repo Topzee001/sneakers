@@ -39,7 +39,7 @@ class GridViewTile extends StatelessWidget {
           //color: Colors.grey.shade300,
           borderRadius: BorderRadius.circular(8),
         ),
-        margin: const EdgeInsets.all(10),
+        margin: const EdgeInsets.all(5),
         //padding: const EdgeInsets.all(15),
         child: Stack(
           children: [

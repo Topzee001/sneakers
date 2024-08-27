@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sneakers/model/product.dart';
 
@@ -204,8 +205,8 @@ Widget buildProductContent3(Sneaker product) {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
-          height: 154,
-          width: 154,
+          height: 154.h,
+          width: 154.w,
           child: CachedNetworkImage(
             imageUrl: product.imageUrl,
             placeholder: (context, url) =>
@@ -215,8 +216,8 @@ Widget buildProductContent3(Sneaker product) {
           ),
         ),
         Container(
-          height: 69,
-          width: 133,
+          height: 69.h,
+          width: 133.w,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -269,14 +270,14 @@ Widget buildProductContent3(Sneaker product) {
 
 Widget buildProductContent4(Sneaker product) {
   return Container(
-    width: 358,
-    height: 200,
+    width: 358.w,
+    height: 200.h,
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
-          height: 69,
-          width: 133,
+          height: 69.h,
+          width: 133.w,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -323,8 +324,8 @@ Widget buildProductContent4(Sneaker product) {
           ),
         ),
         Container(
-          height: 154,
-          width: 154,
+          height: 154.h,
+          width: 154.h,
           child: CachedNetworkImage(
             imageUrl: product.imageUrl,
             placeholder: (context, url) =>

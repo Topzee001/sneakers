@@ -1,5 +1,6 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -38,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String get defaultSize => sizes[0];
 
   Color get defaultColor => productColor.color[0];
-  
+
   int _currentCarouselIndex = 0;
 
   @override
@@ -107,18 +108,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Row(
                   children: [
                     Container(
-                      width: 49,
-                      height: 48,
+                      width: 49.w,
+                      height: 48.h,
                       decoration: BoxDecoration(
                           color: Color(0xFFE89705),
-                          border:
-                              Border.all(color: Color(0xFFFFA500), width: 2.0),
-                          borderRadius: BorderRadius.circular(46.13)),
+                          border: Border.all(
+                              color: Color(0xFFFFA500), width: 2.0.w),
+                          borderRadius: BorderRadius.circular(46.13.r)),
                       child: Center(
                         child: Text(
                           "AD",
                           style: GoogleFonts.robotoFlex(
-                            fontSize: 19,
+                            fontSize: 19.sp,
                             fontWeight: FontWeight.w500,
                             height: 22.27 / 19.0,
                           ),
@@ -126,27 +127,27 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(left: 4.0),
-                      width: 305,
-                      height: 40,
+                      margin: EdgeInsets.only(left: 4.0.w),
+                      width: 305.w,
+                      height: 40.h,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            width: 305.0, // Width set to 305px
-                            height: 18.0,
+                            width: 305.0.w, // Width set to 305px
+                            height: 18.0.h,
                             child: Text(
                               'Good afternoon👋🏾',
                               style: GoogleFonts.robotoFlex(
                                   color: Color.fromRGBO(112, 112, 112, 1),
                                   fontWeight: FontWeight.w400,
-                                  fontSize: 15,
+                                  fontSize: 15.sp,
                                   height: 17.58 / 15),
                             ),
                           ),
                           Container(
-                            width: 305.0, // Width set to 305px
-                            height: 18.0,
+                            width: 305.0.w, // Width set to 305px
+                            height: 18.0.h,
                             child: Text(
                               'Ada Dennis',
                               style: GoogleFonts.robotoFlex(
@@ -174,23 +175,25 @@ class _MyHomePageState extends State<MyHomePage> {
 
               //TODO: create special offer products
               Container(
-                height: 621,
-                width: 390,
+                height: 621.h,
+                //width: 390.w,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      width: 189,
-                      height: 28,
+                      width: 189.w,
+                      height: 28.h,
                       alignment: Alignment.centerLeft,
                       child: Center(
-                        child: Text(
-                          "Our Special Offers",
-                          style: GoogleFonts.robotoFlex(
-                            color: Color.fromRGBO(0, 0, 0, 1),
-                            fontSize: 24,
-                            fontWeight: FontWeight.w500,
-                            height: 28.13 / 24,
+                        child: FittedBox(
+                          child: Text(
+                            "Our Special Offers",
+                            style: GoogleFonts.robotoFlex(
+                              color: Color.fromRGBO(0, 0, 0, 1),
+                              fontSize: 24,
+                              fontWeight: FontWeight.w500,
+                              height: 28.13 / 24,
+                            ),
                           ),
                         ),
                       ),
@@ -206,7 +209,6 @@ class _MyHomePageState extends State<MyHomePage> {
                               crossAxisCount: 2,
                               childAspectRatio: 2 / 3,
                             ),
-                            padding: const EdgeInsets.all(15),
                             itemCount: specialOffers.length,
                             itemBuilder: (context, index) {
                               if (cartProvider.products.isEmpty) {
@@ -236,18 +238,23 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               // const SizedBox(height: 5),
               //create featured products
-              Container(
-                width: 189,
-                height: 28,
-                alignment: Alignment.centerLeft,
-                child: Center(
-                  child: Text(
-                    "Featured Sneakers",
-                    style: GoogleFonts.robotoFlex(
-                      color: Color.fromRGBO(0, 0, 0, 1),
-                      fontSize: 24,
-                      fontWeight: FontWeight.w500,
-                      height: 28.13 / 24,
+              Padding(
+                padding: const EdgeInsets.only(top: 15),
+                child: Container(
+                  width: 189,
+                  height: 28,
+                  alignment: Alignment.centerLeft,
+                  child: Center(
+                    child: FittedBox(
+                      child: Text(
+                        "Featured Sneakers",
+                        style: GoogleFonts.robotoFlex(
+                          color: Color.fromRGBO(0, 0, 0, 1),
+                          fontSize: 24,
+                          fontWeight: FontWeight.w500,
+                          height: 28.13 / 24,
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -260,7 +267,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   childAspectRatio: 2 / 3,
                 ),
                 itemCount: initialFeatureSneakers.length,
-                padding: EdgeInsets.all(15),
+                //padding: EdgeInsets.all(15),
                 itemBuilder: (context, index) {
                   final product = featureSneakers[index];
                   return FeaturedGridTile(
@@ -317,59 +324,65 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _buildBannerCarousel() {
-    return Column(
-      children: [
-        CarouselSlider(
-          options: CarouselOptions(
-            height: 200,
-            viewportFraction: 0.9,
-            enlargeCenterPage: true,
-            autoPlay: true,
-            autoPlayInterval: Duration(seconds: 3),
-          ),
-          items: specificProducts.map((product) {
-            final config = productConfigs[product.uniqueId];
-            print(
-                'Processing product: ${product.uniqueId}, Config found: ${config != null}');
-            return Builder(
-              builder: (BuildContext context) {
-                return MyProductContainer(
-                  product: product,
-                  gradient: config?.gradient ??
-                      LinearGradient(
-                        colors: [
-                          Color(0xFF0072C6).withOpacity(0.8),
-                          Color(0xFF003760).withOpacity(0.9),
-                        ],
-                        begin: Alignment.centerLeft,
-                        end: Alignment.centerRight,
-                      ),
-                  content: config != null
-                      ? config.contentBuilder(product)
-                      : buildDefaultContent(product),
-                );
-              },
+    return CarouselSlider(
+      options: CarouselOptions(
+        height: 200.h,
+        viewportFraction: 0.9,
+        enlargeCenterPage: true,
+        autoPlay: true,
+        autoPlayInterval: Duration(seconds: 3),
+      ),
+      items: specificProducts.map((product) {
+        final config = productConfigs[product.uniqueId];
+        print(
+            'Processing product: ${product.uniqueId}, Config found: ${config != null}');
+        return Builder(
+          builder: (BuildContext context) {
+            return MyProductContainer(
+              product: product,
+              gradient: config?.gradient ??
+                  LinearGradient(
+                    colors: [
+                      Color(0xFF0072C6).withOpacity(0.8),
+                      Color(0xFF003760).withOpacity(0.9),
+                    ],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                  ),
+              content: config != null
+                  ? config.contentBuilder(product)
+                  : buildDefaultContent(product),
             );
-          }).toList(),
-        ),
-        SizedBox(height: 5),
-Row(
-mainAxisAlignment: MainAxisAlignment.center,
-        children: specificProducts.asMap().entries.map((entry) {
-          return Container(
-            width: 8.0,
-            height: 8.0,
-            margin: EdgeInsets.symmetric(horizontal: 4.0),
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.blue.withOpacity(
-                _currentCarouselIndex == entry.key ? 0.9 : 0.4,
-              ),
-            ),
-          );
-        }
-).toList(),),
-      ],
+          },
+        );
+      }).toList(),
     );
   }
 }
+  // Widget _buildDefaultContent(Sneaker product) {
+  //   return Row(
+  //     children: [
+  //       Column(
+  //         mainAxisAlignment: MainAxisAlignment.center,
+  //         children: [
+  //           Text(product.name,
+  //               style: TextStyle(
+  //                   fontWeight: FontWeight.bold, color: Colors.white)),
+  //           Text('₦${product.price.toStringAsFixed(2)}',
+  //               style: TextStyle(color: Colors.white)),
+  //         ],
+  //       ),
+  //       SizedBox(height: 10),
+  //       Container(
+  //         width: 100,
+  //         height: 100,
+  //         decoration: BoxDecoration(
+  //           shape: BoxShape.circle,
+  //           image: DecorationImage(
+  //               image: NetworkImage(product.imageUrl), fit: BoxFit.cover),
+  //         ),
+  //       ),
+  //     ],
+  //   );
+  // }
+//}

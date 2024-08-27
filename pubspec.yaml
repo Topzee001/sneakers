@@ -39,10 +39,12 @@ dependencies:
   google_fonts: ^6.2.1
   provider: ^6.1.2
   http: ^1.2.1
-  carousel_slider: ^4.2.1
+  
   dots_indicator: ^3.0.0
   cached_network_image: ^3.3.1
   flutter_rating_bar: ^4.0.1
+  carousel_slider_plus: ^7.0.0
+  flutter_screenutil: ^5.9.3
 
 dev_dependencies:
   flutter_test:
