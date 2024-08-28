@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -34,8 +33,8 @@ class GridViewTile extends StatelessWidget {
             ));
       },
       child: Container(
-        width: 168.5.w,
-        height: 272.h,
+        width: 168.5,
+        height: 272,
         decoration: BoxDecoration(
           //color: Colors.grey.shade300,
           borderRadius: BorderRadius.circular(8),
@@ -69,13 +68,13 @@ class GridViewTile extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: 10.h,
+                    const SizedBox(
+                      height: 10,
                     ),
                     Text(
                       product.category,
                       style: GoogleFonts.robotoFlex(
-                        fontSize: 10.sp,
+                        fontSize: 10,
                         fontWeight: FontWeight.w400,
                         height: 11.72 / 10,
                       ),
@@ -83,7 +82,7 @@ class GridViewTile extends StatelessWidget {
                     Text(
                       product.name,
                       style: GoogleFonts.robotoFlex(
-                        fontSize: 12.sp,
+                        fontSize: 12,
                         fontWeight: FontWeight.w600,
                         height: 14.06 / 12,
                       ),
@@ -123,8 +122,8 @@ class GridViewTile extends StatelessWidget {
                       ],
                     ),
                     Container(
-                      width: 36.w,
-                      height: 28.h,
+                      width: 36,
+                      height: 28,
                       decoration: BoxDecoration(
                         color: Colors.grey.shade200,
                         borderRadius: BorderRadius.circular(10),
