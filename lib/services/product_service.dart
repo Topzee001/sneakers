@@ -17,21 +17,22 @@ class ApiService {
     final response = await http.get(uri);
 
     if (response.statusCode == 200) {
-      print('Response status code: ${response.statusCode}');
-      print('Response body: ${response.body}');
+      // print('Response status code: ${response.statusCode}');
+      // print('Response body: ${response.body}');
 
       final mapResponse = json.decode(response.body);
       final listResponse = mapResponse['items'];
 
       if (listResponse != null && listResponse is List) {
-        return List<Sneaker>.from(listResponse.map((item) => Sneaker.fromJson(item)));
+        return List<Sneaker>.from(
+            listResponse.map((item) => Sneaker.fromJson(item)));
       } else {
-        print('No items found in the response.');
+        // print('No items found in the response.');
         return [];
       }
     } else {
-      print('Failed to load data. Status code: ${response.statusCode}');
-      print('Response body: ${response.body}');
+      // print('Failed to load data. Status code: ${response.statusCode}');
+      // print('Response body: ${response.body}');
       throw Exception(
           'Failed to load data. Status code: ${response.statusCode}');
     }

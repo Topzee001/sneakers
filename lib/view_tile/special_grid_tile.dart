@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -33,13 +34,13 @@ class GridViewTile extends StatelessWidget {
             ));
       },
       child: Container(
-        width: 168.5,
-        height: 272,
+        width: 168.5.w,
+        height: 272.h,
         decoration: BoxDecoration(
           //color: Colors.grey.shade300,
           borderRadius: BorderRadius.circular(8),
         ),
-        margin: const EdgeInsets.all(5),
+        margin: const EdgeInsets.all(10),
         //padding: const EdgeInsets.all(15),
         child: Stack(
           children: [
@@ -68,13 +69,13 @@ class GridViewTile extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: 10.h,
                     ),
                     Text(
                       product.category,
                       style: GoogleFonts.robotoFlex(
-                        fontSize: 10,
+                        fontSize: 10.sp,
                         fontWeight: FontWeight.w400,
                         height: 11.72 / 10,
                       ),
@@ -82,7 +83,7 @@ class GridViewTile extends StatelessWidget {
                     Text(
                       product.name,
                       style: GoogleFonts.robotoFlex(
-                        fontSize: 12,
+                        fontSize: 12.sp,
                         fontWeight: FontWeight.w600,
                         height: 14.06 / 12,
                       ),
@@ -122,8 +123,8 @@ class GridViewTile extends StatelessWidget {
                       ],
                     ),
                     Container(
-                      width: 36,
-                      height: 28,
+                      width: 36.w,
+                      height: 28.h,
                       decoration: BoxDecoration(
                         color: Colors.grey.shade200,
                         borderRadius: BorderRadius.circular(10),

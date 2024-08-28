@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:sneakers/home.dart';
 
 import 'provider/cart_provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  var box = await Hive.openBox('orderBox');
+
   runApp(const MyApp());
 }
 

@@ -201,37 +201,42 @@ class _MyHomePageState extends State<MyHomePage> {
                     // SizedBox(height: 10),
                     cartProvider.isLoading
                         ? const Center(child: CircularProgressIndicator())
-                        : GridView.builder(
-                            physics: NeverScrollableScrollPhysics(),
-                            shrinkWrap: true,
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              childAspectRatio: 2 / 3,
-                            ),
-                            itemCount: specialOffers.length,
-                            itemBuilder: (context, index) {
-                              if (cartProvider.products.isEmpty) {
-                                return null;
-                              }
-                              final product = specialOffers[index];
+                        : Expanded(
+                            child: GridView.builder(
+                              physics: NeverScrollableScrollPhysics(),
+                              shrinkWrap: true,
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                childAspectRatio: 2 / 3,
+                              ),
+                              itemCount: specialOffers.length,
+                              itemBuilder: (context, index) {
+                                if (cartProvider.products.isEmpty) {
+                                  return null;
+                                }
+                                final product = specialOffers[index];
 
-                              return GridViewTile(
-                                product: product,
-                                onAddToCart: () {
-                                  cartProvider.addToCart(product, quantityState,
-                                      defaultSize, defaultColor);
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text(
-                                          '${product.name} added to cart (Size: $defaultSize, Default color)'),
-                                      duration:
-                                          const Duration(milliseconds: 1500),
-                                    ),
-                                  );
-                                },
-                              );
-                            },
+                                return GridViewTile(
+                                  product: product,
+                                  onAddToCart: () {
+                                    cartProvider.addToCart(
+                                        product,
+                                        quantityState,
+                                        defaultSize,
+                                        defaultColor);
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                            '${product.name} added to cart (Size: $defaultSize, Default color)'),
+                                        duration:
+                                            const Duration(milliseconds: 1500),
+                                      ),
+                                    );
+                                  },
+                                );
+                              },
+                            ),
                           ),
                   ],
                 ),

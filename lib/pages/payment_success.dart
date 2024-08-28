@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 
 import '../components/my_bott_container.dart';
@@ -7,7 +9,12 @@ import '../home.dart';
 import '../provider/cart_provider.dart';
 
 class MyPaymentSuccess extends StatelessWidget {
-  const MyPaymentSuccess({super.key});
+  MyPaymentSuccess({super.key});
+  final _myBox = Hive.box('orderBox');
+
+  void readOrder() {
+    print('Orders: ${_myBox.get('orders')}');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +24,7 @@ class MyPaymentSuccess extends StatelessWidget {
       body: Center(
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-          width: 390,
+          width: 390.w,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -55,6 +62,7 @@ class MyPaymentSuccess extends StatelessWidget {
               MyBottomContainer1(
                 text: 'OK',
                 onTap: () {
+                  readOrder();
                   cartProvider.clearCart();
                   Navigator.pushAndRemoveUntil(
                     context,

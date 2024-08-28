@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:provider/provider.dart';
+import 'package:sneakers/provider/cart_provider.dart';
 
 import '../components/my_bott_container.dart';
 import '../components/my_text.dart';
@@ -15,7 +19,7 @@ class MyPayment extends StatefulWidget {
 
 class _MyPaymentState extends State<MyPayment> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
+  final _myBox = Hive.box('orderBox');
   final nameController = TextEditingController();
   final emailController = TextEditingController();
   final phoneController = TextEditingController();
@@ -40,24 +44,56 @@ class _MyPaymentState extends State<MyPayment> {
     });
   }
 
+  Future<void> _processPayment(BuildContext context) async {}
+
+  Future<void> _processOrder() async {
+    final cartProvider = Provider.of<CartProvider>(context, listen: false);
+
+    final orders = {
+      'name': nameController.text,
+      'items': cartProvider.cartItems.values
+          .map((item) => {
+                'productId': item.product.id,
+                'name': item.product.name,
+                'price': item.product.price,
+                'quantity': item.product.quantity,
+                'size': item.size,
+                'color': item.color.value,
+                'imageUrl': item.product.imageUrl,
+              })
+          .toList(),
+      'totalPrice': cartProvider.totalPrice,
+      // 'timestamp':
+    };
+
+    await _myBox.put('orders', orders);
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => MyPaymentSuccess(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
       decoration: BoxDecoration(
         color: Color.fromRGBO(255, 255, 255, 1),
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(16.0),
-          topRight: Radius.circular(16.0),
+          topLeft: Radius.circular(16.0.r),
+          topRight: Radius.circular(16.0.r),
         ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
-            padding: EdgeInsets.only(left: 16),
-            height: 54,
-            width: 390,
+            padding: const EdgeInsets.only(left: 16),
+            height: 54.h,
+            width: 390.w,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -67,22 +103,22 @@ class _MyPaymentState extends State<MyPayment> {
                     fontSize: 19,
                     fontWeight: FontWeight.w500,
                     height: 22.27 / 19,
-                    color: Color.fromRGBO(42, 42, 42, 1),
+                    color: const Color.fromRGBO(42, 42, 42, 1),
                   ),
                 ),
                 IconButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: Icon(Icons.close),
+                  icon: const Icon(Icons.close),
                 )
               ],
             ),
           ),
           Container(
-              padding: EdgeInsets.only(left: 16),
-              height: 98,
-              width: 350,
+              padding: const EdgeInsets.only(left: 16),
+              height: 98.h,
+              width: 350.w,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -94,15 +130,16 @@ class _MyPaymentState extends State<MyPayment> {
                       fontSize: 15,
                       fontWeight: FontWeight.w600,
                       height: 17.58 / 15,
-                      color: Color.fromRGBO(0, 114, 198, 1).withOpacity(0.2),
+                      color:
+                          const Color.fromRGBO(0, 114, 198, 1).withOpacity(0.2),
                     ),
                   ),
                 ],
               )),
-          SizedBox(height: 15),
-          Container(
-            height: 232,
-            width: 350,
+          const SizedBox(height: 15),
+          SizedBox(
+            height: 232.h,
+            width: 350.w,
             child: Form(
               key: _formKey,
               child: Column(
@@ -110,7 +147,7 @@ class _MyPaymentState extends State<MyPayment> {
                 children: [
                   Column(
                     children: [
-                      MyText1(
+                      const MyText1(
                         text: 'Full name',
                       ),
                       MyTextField(
@@ -122,7 +159,7 @@ class _MyPaymentState extends State<MyPayment> {
                   ),
                   Column(
                     children: [
-                      MyText1(
+                      const MyText1(
                         text: 'Email address',
                       ),
                       MyTextField(
@@ -135,7 +172,7 @@ class _MyPaymentState extends State<MyPayment> {
                   ),
                   Column(
                     children: [
-                      MyText1(
+                      const MyText1(
                         text: 'Phone number',
                       ),
                       MyTextField(
@@ -151,19 +188,14 @@ class _MyPaymentState extends State<MyPayment> {
             ),
           ),
           if (!_isFormValidated)
-            MyBottomContainer(
+            const MyBottomContainer(
               text: 'Proceed to payment',
             ),
           if (_isFormValidated)
             MyBottomContainer1(
               text: 'Proceed to payment',
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => MyPaymentSuccess(),
-                  ),
-                );
+                _processOrder();
               },
             ),
         ],

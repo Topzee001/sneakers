@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:sneakers/components/proceed.dart';
 
@@ -8,8 +9,15 @@ import '../provider/cart_provider.dart';
 import '../view_tile/checkout_tile.dart';
 import 'payment_bottom_page.dart';
 
-class MyCheckout extends StatelessWidget {
+class MyCheckout extends StatefulWidget {
   const MyCheckout({super.key});
+
+  @override
+  State<MyCheckout> createState() => _MyCheckoutState();
+}
+
+class _MyCheckoutState extends State<MyCheckout> {
+  //send order to db method
 
   @override
   Widget build(BuildContext context) {
