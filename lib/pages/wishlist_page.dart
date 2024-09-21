@@ -31,7 +31,7 @@ class MyWishlist extends StatelessWidget {
               fontSize: 19,
               fontWeight: FontWeight.w600,
               height: 22.27 / 19,
-              color: Color.fromRGBO(41, 41, 41, 1),
+              color: const Color.fromRGBO(41, 41, 41, 1),
             ),
           ),
           actions: [
@@ -44,7 +44,7 @@ class MyWishlist extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => MyHome(
+                                builder: (context) => const MyHome(
                                       initialIndex: 3,
                                     )));
                       },
@@ -60,7 +60,7 @@ class MyWishlist extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset('assets/Illustration.png'),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     Text(
@@ -76,7 +76,7 @@ class MyWishlist extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => MyHome(
+                                builder: (context) => const MyHome(
                                       initialIndex: 1,
                                     )));
                       },
@@ -86,7 +86,7 @@ class MyWishlist extends StatelessWidget {
                 ),
               )
             : GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2, childAspectRatio: 2 / 3),
                 itemCount: cartProvider.favourites.length,
                 itemBuilder: (context, index) {

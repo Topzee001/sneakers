@@ -19,50 +19,50 @@ class MyBrands extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             minWidth: 42,
                             minHeight: 64,
                           ),
-                          padding: EdgeInsets.all(4),
+                          padding: const EdgeInsets.all(4),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Container(
                                 decoration: BoxDecoration(
-                                  color: Color.fromRGBO(249, 249, 249, 1),
+                                  color: const Color.fromRGBO(249, 249, 249, 1),
                                   borderRadius: BorderRadius.circular(40),
                                 ),
                                 width: 42,
                                 height: 48,
                                 child: SvgPicture.string(SvgIcons.nike),
                               ),
-                              MyText(
+                              const MyText(
                                 text: 'Nike',
                               ),
                             ],
                           ),
                         ),
                         Container(
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             minWidth: 42,
                             minHeight: 64,
                           ),
-                          padding: EdgeInsets.all(4),
+                          padding: const EdgeInsets.all(4),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Container(
                                 decoration: BoxDecoration(
-                                  color: Color.fromRGBO(249, 249, 249, 1),
+                                  color: const Color.fromRGBO(249, 249, 249, 1),
                                   borderRadius: BorderRadius.circular(40),
                                 ),
                                 width: 48,
                                 height: 48,
                                 child: SvgPicture.string(SvgIcons.adidas),
                               ),
-                              MyText(
+                              const MyText(
                                 text: 'Adidas',
                               ),
                             ],
@@ -78,50 +78,50 @@ class MyBrands extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             minWidth: 42,
                             minHeight: 64,
                           ),
-                          padding: EdgeInsets.all(4),
+                          padding: const EdgeInsets.all(4),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Container(
                                 decoration: BoxDecoration(
-                                  color: Color.fromRGBO(249, 249, 249, 1),
+                                  color: const Color.fromRGBO(249, 249, 249, 1),
                                   borderRadius: BorderRadius.circular(40),
                                 ),
                                 width: 42,
                                 height: 48,
                                 child: SvgPicture.string(SvgIcons.gucci),
                               ),
-                              MyText(
+                              const MyText(
                                 text: 'Gucci',
                               ),
                             ],
                           ),
                         ),
                         Container(
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             minWidth: 42,
                             minHeight: 64,
                           ),
-                          padding: EdgeInsets.all(4),
+                          padding: const EdgeInsets.all(4),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Container(
                                 decoration: BoxDecoration(
-                                  color: Color.fromRGBO(249, 249, 249, 1),
+                                  color: const Color.fromRGBO(249, 249, 249, 1),
                                   borderRadius: BorderRadius.circular(40),
                                 ),
                                 width: 48,
                                 height: 48,
                                 child: SvgPicture.string(SvgIcons.reebok),
                               ),
-                              MyText(
+                              const MyText(
                                 text: 'Reebok',
                               ),
                             ],
@@ -137,50 +137,50 @@ class MyBrands extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             minWidth: 42,
                             minHeight: 64,
                           ),
-                          padding: EdgeInsets.all(4),
+                          padding: const EdgeInsets.all(4),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Container(
                                 decoration: BoxDecoration(
-                                  color: Color.fromRGBO(249, 249, 249, 1),
+                                  color: const Color.fromRGBO(249, 249, 249, 1),
                                   borderRadius: BorderRadius.circular(40),
                                 ),
                                 width: 42,
                                 height: 48,
                                 child: SvgPicture.string(SvgIcons.jordan),
                               ),
-                              MyText(
+                              const MyText(
                                 text: 'Jordan',
                               ),
                             ],
                           ),
                         ),
                         Container(
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             minWidth: 42,
                             minHeight: 64,
                           ),
-                          padding: EdgeInsets.all(4),
+                          padding: const EdgeInsets.all(4),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Container(
                                 decoration: BoxDecoration(
-                                  color: Color.fromRGBO(249, 249, 249, 1),
+                                  color: const Color.fromRGBO(249, 249, 249, 1),
                                   borderRadius: BorderRadius.circular(40),
                                 ),
                                 width: 48,
                                 height: 48,
                                 child: SvgPicture.string(SvgIcons.newBalance),
                               ),
-                              MyText(
+                              const MyText(
                                 text: 'New Balance',
                               ),
                             ],
@@ -196,48 +196,48 @@ class MyBrands extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             minWidth: 42,
                             minHeight: 64,
                           ),
-                          padding: EdgeInsets.all(4),
+                          padding: const EdgeInsets.all(4),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Container(
                                 decoration: BoxDecoration(
-                                  color: Color.fromRGBO(249, 249, 249, 1),
+                                  color: const Color.fromRGBO(249, 249, 249, 1),
                                   borderRadius: BorderRadius.circular(40),
                                 ),
                                 width: 42,
                                 height: 48,
                                 child: SvgPicture.string(SvgIcons.balenciaga),
                               ),
-                              MyText(
+                              const MyText(
                                 text: 'Balenciaga',
                               ),
                             ],
                           ),
                         ),
                         Container(
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             minWidth: 42,
                             minHeight: 64,
                           ),
-                          padding: EdgeInsets.all(4),
+                          padding: const EdgeInsets.all(4),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Container(
                                 decoration: BoxDecoration(
-                                  color: Color.fromRGBO(249, 249, 249, 1),
+                                  color: const Color.fromRGBO(249, 249, 249, 1),
                                   borderRadius: BorderRadius.circular(40),
                                 ),
                                 width: 48,
                                 height: 48,
-                                child: MyText(
+                                child: const MyText(
                                   text: 'View all',
                                 ),
                               ),

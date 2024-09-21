@@ -34,7 +34,7 @@ class MyText1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 14,
       width: 350,
       child: Text(
@@ -43,7 +43,7 @@ class MyText1 extends StatelessWidget {
           fontSize: 12,
           fontWeight: FontWeight.w400,
           height: 14.06 / 12,
-          color: Color.fromRGBO(41, 41, 41, 1),
+          color: const Color.fromRGBO(41, 41, 41, 1),
         ),
       ),
     );

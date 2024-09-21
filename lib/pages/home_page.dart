@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Color get defaultColor => productColor.color[0];
 
-  int _currentCarouselIndex = 0;
+  final int _currentCarouselIndex = 0;
 
   @override
   void initState() {
@@ -76,8 +76,8 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: [
           Row(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 16.0),
+              const Padding(
+                padding: EdgeInsets.only(right: 16.0),
                 child: Icon(Icons.search_sharp),
               ),
               IconButton(
@@ -85,13 +85,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => MyHome(
+                      builder: (context) => const MyHome(
                         initialIndex: 4,
                       ),
                     ),
                   );
                 },
-                icon: Icon(Icons.history),
+                icon: const Icon(Icons.history),
               ),
             ],
           ),
@@ -111,9 +111,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: 49.w,
                       height: 48.h,
                       decoration: BoxDecoration(
-                          color: Color(0xFFE89705),
+                          color: const Color(0xFFE89705),
                           border: Border.all(
-                              color: Color(0xFFFFA500), width: 2.0.w),
+                              color: const Color(0xFFFFA500), width: 2.0.w),
                           borderRadius: BorderRadius.circular(46.13.r)),
                       child: Center(
                         child: Text(
@@ -133,25 +133,25 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
+                          SizedBox(
                             width: 305.0.w, // Width set to 305px
                             height: 18.0.h,
                             child: Text(
                               'Good afternoon👋🏾',
                               style: GoogleFonts.robotoFlex(
-                                  color: Color.fromRGBO(112, 112, 112, 1),
+                                  color: const Color.fromRGBO(112, 112, 112, 1),
                                   fontWeight: FontWeight.w400,
                                   fontSize: 15.sp,
                                   height: 17.58 / 15),
                             ),
                           ),
-                          Container(
+                          SizedBox(
                             width: 305.0.w, // Width set to 305px
                             height: 18.0.h,
                             child: Text(
                               'Ada Dennis',
                               style: GoogleFonts.robotoFlex(
-                                  color: Color.fromRGBO(42, 42, 42, 1),
+                                  color: const Color.fromRGBO(42, 42, 42, 1),
                                   fontWeight: FontWeight.w500,
                                   fontSize: 19,
                                   height: 22.27 / 19),
@@ -174,7 +174,7 @@ class _MyHomePageState extends State<MyHomePage> {
               //TODO: special offer products
 
               //TODO: create special offer products
-              Container(
+              SizedBox(
                 height: 621.h,
                 //width: 390.w,
                 child: Column(
@@ -189,7 +189,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Text(
                             "Our Special Offers",
                             style: GoogleFonts.robotoFlex(
-                              color: Color.fromRGBO(0, 0, 0, 1),
+                              color: const Color.fromRGBO(0, 0, 0, 1),
                               fontSize: 24,
                               fontWeight: FontWeight.w500,
                               height: 28.13 / 24,
@@ -203,7 +203,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ? const Center(child: CircularProgressIndicator())
                         : Expanded(
                             child: GridView.builder(
-                              physics: NeverScrollableScrollPhysics(),
+                              physics: const NeverScrollableScrollPhysics(),
                               shrinkWrap: true,
                               gridDelegate:
                                   const SliverGridDelegateWithFixedCrossAxisCount(
@@ -254,7 +254,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Text(
                         "Featured Sneakers",
                         style: GoogleFonts.robotoFlex(
-                          color: Color.fromRGBO(0, 0, 0, 1),
+                          color: const Color.fromRGBO(0, 0, 0, 1),
                           fontSize: 24,
                           fontWeight: FontWeight.w500,
                           height: 28.13 / 24,
@@ -265,9 +265,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               GridView.builder(
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   childAspectRatio: 2 / 3,
                 ),
@@ -300,7 +300,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           height: 42,
                           width: 104,
                           decoration: BoxDecoration(
-                            color: Color.fromRGBO(0, 114, 198, 1),
+                            color: const Color.fromRGBO(0, 114, 198, 1),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: Center(
@@ -310,7 +310,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
                               height: 17.58 / 15,
-                              color: Color.fromRGBO(255, 255, 255, 1),
+                              color: const Color.fromRGBO(255, 255, 255, 1),
                             ),
                           )),
                         ),
@@ -335,7 +335,7 @@ class _MyHomePageState extends State<MyHomePage> {
         viewportFraction: 0.9,
         enlargeCenterPage: true,
         autoPlay: true,
-        autoPlayInterval: Duration(seconds: 3),
+        autoPlayInterval: const Duration(seconds: 3),
       ),
       items: specificProducts.map((product) {
         final config = productConfigs[product.uniqueId];
@@ -348,8 +348,8 @@ class _MyHomePageState extends State<MyHomePage> {
               gradient: config?.gradient ??
                   LinearGradient(
                     colors: [
-                      Color(0xFF0072C6).withOpacity(0.8),
-                      Color(0xFF003760).withOpacity(0.9),
+                      const Color(0xFF0072C6).withOpacity(0.8),
+                      const Color(0xFF003760).withOpacity(0.9),
                     ],
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight,

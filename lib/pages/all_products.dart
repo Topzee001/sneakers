@@ -32,13 +32,13 @@ class _MyProductsState extends State<MyProducts> {
             fontSize: 19,
             fontWeight: FontWeight.w600,
             height: 22.27 / 19,
-            color: Color.fromRGBO(41, 41, 41, 1),
+            color: const Color.fromRGBO(41, 41, 41, 1),
           ),
         ),
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.grid_view),
+            icon: const Icon(Icons.grid_view),
           ),
         ],
       ),
@@ -60,7 +60,7 @@ class _MyProductsState extends State<MyProducts> {
                             fontSize: 19,
                             fontWeight: FontWeight.w600,
                             height: 22.27 / 19,
-                            color: Color.fromRGBO(41, 41, 41, 1),
+                            color: const Color.fromRGBO(41, 41, 41, 1),
                           ),
                         ),
                       )

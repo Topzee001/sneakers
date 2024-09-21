@@ -43,7 +43,7 @@ class AddToCart1 extends StatelessWidget {
             height: 30,
             width: 113,
             decoration: BoxDecoration(
-              color: Color.fromRGBO(255, 255, 255, 1),
+              color: const Color.fromRGBO(255, 255, 255, 1),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -52,10 +52,10 @@ class AddToCart1 extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 16.0),
                   child: SvgPicture.string(
                     SvgIcons.cartIcon,
-                    color: Color.fromRGBO(0, 114, 198, 1),
+                    color: const Color.fromRGBO(0, 114, 198, 1),
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 Padding(
                   padding: const EdgeInsets.only(right: 16.0),
                   child: Text(
@@ -63,7 +63,7 @@ class AddToCart1 extends StatelessWidget {
                     style: GoogleFonts.robotoFlex(
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
-                      color: Color.fromRGBO(0, 114, 198, 1),
+                      color: const Color.fromRGBO(0, 114, 198, 1),
                     ),
                   ),
                 ),

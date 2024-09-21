@@ -30,7 +30,7 @@ class _MyCartItemState extends State<MyCheckoutTile> {
         //margin: const EdgeInsets.all(16.0),
         decoration: BoxDecoration(
           border: Border.all(width: 1, color: Colors.grey.shade200),
-          color: Color.fromRGBO(249, 249, 249, 1),
+          color: const Color.fromRGBO(249, 249, 249, 1),
           borderRadius: BorderRadius.circular(8),
         ),
         height: 112,
@@ -51,7 +51,7 @@ class _MyCartItemState extends State<MyCheckoutTile> {
                   imageUrl: widget.product.imageUrl,
                   placeholder: (context, url) =>
                       const Center(child: CircularProgressIndicator()),
-                  errorWidget: (context, url, error) => Icon(Icons.shop),
+                  errorWidget: (context, url, error) => const Icon(Icons.shop),
                   fit: BoxFit.cover,
                   height: 120,
                   // width: 50,
@@ -60,13 +60,13 @@ class _MyCartItemState extends State<MyCheckoutTile> {
             ),
           ),
           title: Container(
-            margin: EdgeInsets.symmetric(horizontal: 8),
+            margin: const EdgeInsets.symmetric(horizontal: 8),
             height: 56,
             width: 210,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
+                SizedBox(
                   height: 18,
                   width: 210,
                   child: Row(
@@ -75,7 +75,7 @@ class _MyCartItemState extends State<MyCheckoutTile> {
                       Text(
                         widget.product.name,
                         style: GoogleFonts.robotoFlex(
-                          color: Color.fromRGBO(42, 42, 42, 1),
+                          color: const Color.fromRGBO(42, 42, 42, 1),
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
                           height: 17.58 / 15,
@@ -84,7 +84,7 @@ class _MyCartItemState extends State<MyCheckoutTile> {
                     ],
                   ),
                 ),
-                Container(
+                SizedBox(
                   height: 26,
                   width: 166,
                   child: Row(
@@ -93,7 +93,7 @@ class _MyCartItemState extends State<MyCheckoutTile> {
                       Text(
                         'color:  ',
                         style: GoogleFonts.robotoFlex(
-                          color: Color.fromRGBO(85, 85, 85, 1),
+                          color: const Color.fromRGBO(85, 85, 85, 1),
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
                           height: 14.06 / 12,
@@ -107,7 +107,7 @@ class _MyCartItemState extends State<MyCheckoutTile> {
                           color: widget.cartItem.color,
                         ),
                       ),
-                      VerticalDivider(
+                      const VerticalDivider(
                         color: Colors.black,
                         thickness: 0.5,
                         width: 16,
@@ -117,7 +117,7 @@ class _MyCartItemState extends State<MyCheckoutTile> {
                       Text(
                         ' Size ${widget.cartItem.size}',
                         style: GoogleFonts.robotoFlex(
-                          color: Color.fromRGBO(42, 42, 42, 1),
+                          color: const Color.fromRGBO(42, 42, 42, 1),
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
                           height: 14.06 / 12,
@@ -129,7 +129,7 @@ class _MyCartItemState extends State<MyCheckoutTile> {
               ],
             ),
           ),
-          subtitle: Container(
+          subtitle: SizedBox(
             height: 34,
             width: 210,
             child: Row(
@@ -139,21 +139,21 @@ class _MyCartItemState extends State<MyCheckoutTile> {
                   height: 26,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(2),
-                      color: Color.fromRGBO(0, 114, 198, 0.12)),
+                      color: const Color.fromRGBO(0, 114, 198, 0.12)),
                   child: Center(
                     child: Text(
                       '${widget.cartItem.quantity}',
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Text(
                     ' ₦${(widget.product.price * widget.cartItem.quantity).toStringAsFixed(2)}',
                     style: GoogleFonts.robotoFlex(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
                       height: 17.58 / 15,
-                      color: Color.fromRGBO(42, 42, 42, 1),
+                      color: const Color.fromRGBO(42, 42, 42, 1),
                     ))
               ],
             ),

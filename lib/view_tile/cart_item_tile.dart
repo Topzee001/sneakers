@@ -55,7 +55,7 @@ class _MyCartItemState extends State<MyCartItemTile> {
                     imageUrl: widget.product.imageUrl,
                     placeholder: (context, url) =>
                         const Center(child: CircularProgressIndicator()),
-                    errorWidget: (context, url, error) => Icon(Icons.shop),
+                    errorWidget: (context, url, error) => const Icon(Icons.shop),
                     fit: BoxFit.cover,
                     height: 120.h,
                     // width: 50,
@@ -63,13 +63,13 @@ class _MyCartItemState extends State<MyCartItemTile> {
                 ),
               ),
               title: Container(
-                margin: EdgeInsets.symmetric(horizontal: 8),
+                margin: const EdgeInsets.symmetric(horizontal: 8),
                 height: 56.h,
                 width: 210.w,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
+                    SizedBox(
                       height: 18.h,
                       //width: 210.w,
                       child: Row(
@@ -78,7 +78,7 @@ class _MyCartItemState extends State<MyCartItemTile> {
                           Text(
                             widget.product.name,
                             style: GoogleFonts.robotoFlex(
-                              color: Color.fromRGBO(42, 42, 42, 1),
+                              color: const Color.fromRGBO(42, 42, 42, 1),
                               fontSize: 15.sp,
                               fontWeight: FontWeight.w500,
                               height: 17.58 / 15,
@@ -88,7 +88,7 @@ class _MyCartItemState extends State<MyCartItemTile> {
                         ],
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       height: 26.h,
                       width: 166.w,
                       child: Row(
@@ -97,7 +97,7 @@ class _MyCartItemState extends State<MyCartItemTile> {
                           Text(
                             'color:  ',
                             style: GoogleFonts.robotoFlex(
-                              color: Color.fromRGBO(85, 85, 85, 1),
+                              color: const Color.fromRGBO(85, 85, 85, 1),
                               fontSize: 12.sp,
                               fontWeight: FontWeight.w500,
                               height: 14.06 / 12,
@@ -111,7 +111,7 @@ class _MyCartItemState extends State<MyCartItemTile> {
                               color: widget.cartItem.color,
                             ),
                           ),
-                          VerticalDivider(
+                          const VerticalDivider(
                             color: Colors.black,
                             thickness: 0.5,
                             width: 16,
@@ -121,7 +121,7 @@ class _MyCartItemState extends State<MyCartItemTile> {
                           Text(
                             ' Size ${widget.cartItem.size}',
                             style: GoogleFonts.robotoFlex(
-                              color: Color.fromRGBO(42, 42, 42, 1),
+                              color: const Color.fromRGBO(42, 42, 42, 1),
                               fontSize: 15.sp,
                               fontWeight: FontWeight.w500,
                               height: 14.06 / 12,
@@ -133,29 +133,29 @@ class _MyCartItemState extends State<MyCartItemTile> {
                   ],
                 ),
               ),
-              subtitle: Container(
+              subtitle: SizedBox(
                 height: 34.h,
                 width: 210.w,
                 child: Row(
                   children: [
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 4),
-                      margin: EdgeInsets.symmetric(horizontal: 8),
+                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      margin: const EdgeInsets.symmetric(horizontal: 8),
                       height: 34.h,
                       width: 105.w,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(4),
-                        color: Color.fromRGBO(249, 249, 249, 1),
+                        color: const Color.fromRGBO(249, 249, 249, 1),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
+                          SizedBox(
                             height: 16.h,
                             width: 16.w,
                             child: IconButton(
-                              padding: EdgeInsets.all(0.0),
-                              icon: Icon(
+                              padding: const EdgeInsets.all(0.0),
+                              icon: const Icon(
                                 Icons.remove,
                                 size: 15,
                               ),
@@ -178,18 +178,18 @@ class _MyCartItemState extends State<MyCartItemTile> {
                                   height: 26.h,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(2),
-                                      color: Color.fromRGBO(0, 114, 198, 0.12)),
+                                      color: const Color.fromRGBO(0, 114, 198, 0.12)),
                                   child: Center(
                                     child: Text(
                                       '${widget.cartItem.quantity}',
                                     ),
                                   ))),
-                          Container(
+                          SizedBox(
                             height: 16.h,
                             width: 16.w,
                             child: IconButton(
-                              padding: EdgeInsets.all(0.0),
-                              icon: Icon(
+                              padding: const EdgeInsets.all(0.0),
+                              icon: const Icon(
                                 Icons.add,
                                 size: 15,
                               ),
@@ -208,7 +208,7 @@ class _MyCartItemState extends State<MyCartItemTile> {
                         fontSize: 15.sp,
                         fontWeight: FontWeight.w500,
                         height: 17.58 / 15,
-                        color: Color.fromRGBO(42, 42, 42, 1),
+                        color: const Color.fromRGBO(42, 42, 42, 1),
                       ),
                     )
                   ],
@@ -222,7 +222,7 @@ class _MyCartItemState extends State<MyCartItemTile> {
                   padding: const EdgeInsets.only(left: 15.0),
                   child: IconButton(
                     onPressed: widget.onRemove,
-                    icon: Icon(Icons.close),
+                    icon: const Icon(Icons.close),
                   ),
                 ))
           ],

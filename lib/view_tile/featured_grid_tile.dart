@@ -63,7 +63,7 @@ class FeaturedGridTile extends StatelessWidget {
                           placeholder: (context, url) =>
                               const Center(child: CircularProgressIndicator()),
                           errorWidget: (context, url, error) =>
-                              Icon(Icons.shop),
+                              const Icon(Icons.shop),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -90,7 +90,7 @@ class FeaturedGridTile extends StatelessWidget {
                     Row(
                       children: [
                         SvgPicture.string(SvgIcons.star),
-                        Text('4.5(100 sold)')
+                        const Text('4.5(100 sold)')
                       ],
                     ),
                   ],
@@ -103,7 +103,7 @@ class FeaturedGridTile extends StatelessWidget {
                         Text(
                           '₦${product.price.toStringAsFixed(2)}',
                           style: GoogleFonts.robotoFlex(
-                            color: Color.fromRGBO(0, 114, 198, 1),
+                            color: const Color.fromRGBO(0, 114, 198, 1),
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
                             height: 14.06 / 12,

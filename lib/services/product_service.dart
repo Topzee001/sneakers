@@ -8,9 +8,9 @@ class ApiService {
   static const String appId = '2ITOWSJ5GB9SW2R';
   static const String apiKey =
       'cd0fa5888a38492a8d42b9fc552129b620240712232512466148';
-
+// https://api.timbu.cloud/products?organization_id=30aa7faee065453883d79187ff59833a&Appid=2ITOWSJ5GB9SW2R&Apikey=cd0fa5888a38492a8d42b9fc552129b620240712232512466148
   Future<List<Sneaker>> fetchSneakers() async {
-    final String url =
+    const String url =
         '$baseUrl?organization_id=$organizationId&Appid=$appId&Apikey=$apiKey';
 
     final Uri uri = Uri.parse(url);
