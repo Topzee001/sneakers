@@ -58,15 +58,15 @@ final Map<String, ProductBanner> productConfigs = {
 };
 
 Widget buildProductContent1(Sneaker product) {
-  return SizedBox(
-    width: 358,
-    height: 200,
+  return Container(
+    width: 358.w,
+    height: 200.h,
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        SizedBox(
-          height: 154,
-          width: 154,
+        Container(
+          height: 154.h,
+          width: 154.w,
           child: CachedNetworkImage(
             imageUrl: product.imageUrl,
             placeholder: (context, url) =>
@@ -76,8 +76,8 @@ Widget buildProductContent1(Sneaker product) {
           ),
         ),
         SizedBox(
-          height: 69,
-          width: 133,
+          height: 69.h,
+          width: 133.w,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -137,8 +137,8 @@ Widget buildProductContent2(Sneaker product) {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
-              height: 87,
-              width: 152,
+              height: 87.h,
+              width: 152.w,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -183,8 +183,8 @@ Widget buildProductContent2(Sneaker product) {
         ),
       ),
       SizedBox(
-        height: 154,
-        width: 154,
+        height: 154.h,
+        width: 154.w,
         child: CachedNetworkImage(
           imageUrl: product.imageUrl,
           placeholder: (context, url) =>
@@ -199,8 +199,8 @@ Widget buildProductContent2(Sneaker product) {
 
 Widget buildProductContent3(Sneaker product) {
   return SizedBox(
-    width: 358,
-    height: 200,
+    width: 358.w,
+    height: 200.h,
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -344,7 +344,8 @@ Widget buildDefaultContent(Sneaker product) {
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Text(product.name,
-          style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
+          style: const TextStyle(
+              fontWeight: FontWeight.bold, color: Colors.white)),
       Text('₦${product.price.toStringAsFixed(2)}',
           style: const TextStyle(color: Colors.white)),
     ],
