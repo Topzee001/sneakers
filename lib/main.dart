@@ -27,10 +27,10 @@ class MyApp extends StatelessWidget {
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (_, child) {
-          return MaterialApp(
+          return const MaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'Flutter Demo',
-            home: const MyHome(),
+            home: MyHome(),
           );
         },
       ),
