@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:sneakers/components/proceed.dart';
 
@@ -39,7 +38,7 @@ class _MyCheckoutState extends State<MyCheckout> {
             fontSize: 19,
             fontWeight: FontWeight.w600,
             height: 22.27 / 19,
-            color: Color.fromRGBO(41, 41, 41, 1),
+            color: const Color.fromRGBO(41, 41, 41, 1),
           ),
         ),
       ),
@@ -62,7 +61,7 @@ class _MyCheckoutState extends State<MyCheckout> {
                             fontSize: 15,
                             fontWeight: FontWeight.w500,
                             height: 17.58 / 15,
-                            color: Color.fromRGBO(41, 41, 41, 1),
+                            color: const Color.fromRGBO(41, 41, 41, 1),
                           ),
                         ),
                         Padding(
@@ -73,7 +72,7 @@ class _MyCheckoutState extends State<MyCheckout> {
                               fontSize: 15,
                               fontWeight: FontWeight.w600,
                               height: 17.58 / 15,
-                              color: Color.fromRGBO(0, 114, 198, 1),
+                              color: const Color.fromRGBO(0, 114, 198, 1),
                             ),
                           ),
                         )
@@ -82,7 +81,7 @@ class _MyCheckoutState extends State<MyCheckout> {
                     const SizedBox(height: 5),
                     ListView.builder(
                       shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       itemCount: cartProvider.cartItems.length,
                       itemBuilder: (context, index) {
                         final sneakerId =
@@ -97,10 +96,10 @@ class _MyCheckoutState extends State<MyCheckout> {
                         );
                       },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
-                    Container(
+                    SizedBox(
                       width: 358,
                       height: 104,
                       child: Column(
@@ -118,7 +117,7 @@ class _MyCheckoutState extends State<MyCheckout> {
                                     fontSize: 15,
                                     fontWeight: FontWeight.w500,
                                     height: 17.58 / 15,
-                                    color: Color.fromRGBO(41, 41, 41, 1),
+                                    color: const Color.fromRGBO(41, 41, 41, 1),
                                   ),
                                 ),
                                 Text(
@@ -127,18 +126,18 @@ class _MyCheckoutState extends State<MyCheckout> {
                                     fontSize: 15,
                                     fontWeight: FontWeight.w600,
                                     height: 17.58 / 15,
-                                    color: Color.fromRGBO(0, 114, 198, 1),
+                                    color: const Color.fromRGBO(0, 114, 198, 1),
                                   ),
                                 )
                               ],
                             ),
                           ),
                           Container(
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Color.fromRGBO(249, 249, 249, 1),
                               ),
                               // margin: EdgeInsets.all(10),
-                              padding: EdgeInsets.all(16),
+                              padding: const EdgeInsets.all(16),
                               height: 74,
                               width: 358,
                               child: Column(
@@ -156,7 +155,7 @@ class _MyCheckoutState extends State<MyCheckout> {
                                           fontSize: 12,
                                           fontWeight: FontWeight.w500,
                                           height: 14.06 / 12,
-                                          color: Color.fromRGBO(42, 42, 42, 1),
+                                          color: const Color.fromRGBO(42, 42, 42, 1),
                                         ),
                                       ),
                                       Text(
@@ -165,7 +164,7 @@ class _MyCheckoutState extends State<MyCheckout> {
                                           fontSize: 12,
                                           fontWeight: FontWeight.w500,
                                           height: 14.06 / 12,
-                                          color: Color.fromRGBO(42, 42, 42, 1),
+                                          color: const Color.fromRGBO(42, 42, 42, 1),
                                         ),
                                       ),
                                     ],
@@ -176,7 +175,7 @@ class _MyCheckoutState extends State<MyCheckout> {
                                       fontSize: 12,
                                       fontWeight: FontWeight.w500,
                                       height: 14.06 / 12,
-                                      color: Color.fromRGBO(42, 42, 42, 1),
+                                      color: const Color.fromRGBO(42, 42, 42, 1),
                                     ),
                                   ),
                                 ],
@@ -187,7 +186,7 @@ class _MyCheckoutState extends State<MyCheckout> {
                     const SizedBox(
                       height: 20,
                     ),
-                    Container(
+                    SizedBox(
                       width: 358,
                       height: 78,
                       child: Column(
@@ -203,7 +202,7 @@ class _MyCheckoutState extends State<MyCheckout> {
                                   fontSize: 15,
                                   fontWeight: FontWeight.w500,
                                   height: 17.58 / 15,
-                                  color: Color.fromRGBO(42, 42, 42, 1),
+                                  color: const Color.fromRGBO(42, 42, 42, 1),
                                 ),
                               ),
                               Text(
@@ -212,17 +211,17 @@ class _MyCheckoutState extends State<MyCheckout> {
                                   fontSize: 15,
                                   fontWeight: FontWeight.w600,
                                   height: 17.58 / 15,
-                                  color: Color.fromRGBO(0, 114, 198, 1),
+                                  color: const Color.fromRGBO(0, 114, 198, 1),
                                 ),
                               )
                             ],
                           ),
                           Container(
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Color.fromRGBO(249, 249, 249, 1),
                             ),
                             // margin: EdgeInsets.all(10),
-                            padding: EdgeInsets.all(16),
+                            padding: const EdgeInsets.all(16),
                             height: 48,
                             width: 358,
                             child: Column(
@@ -238,7 +237,7 @@ class _MyCheckoutState extends State<MyCheckout> {
                                         fontSize: 12,
                                         fontWeight: FontWeight.w500,
                                         height: 14.06 / 12,
-                                        color: Color.fromRGBO(42, 42, 42, 1),
+                                        color: const Color.fromRGBO(42, 42, 42, 1),
                                       ),
                                     ),
                                     Text(
@@ -247,7 +246,7 @@ class _MyCheckoutState extends State<MyCheckout> {
                                         fontSize: 12,
                                         fontWeight: FontWeight.w500,
                                         height: 14.06 / 12,
-                                        color: Color.fromRGBO(42, 42, 42, 1),
+                                        color: const Color.fromRGBO(42, 42, 42, 1),
                                       ),
                                     ),
                                   ],
@@ -258,8 +257,8 @@ class _MyCheckoutState extends State<MyCheckout> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 20),
-                    Container(
+                    const SizedBox(height: 20),
+                    SizedBox(
                       width: 358,
                       height: 190,
                       child: Column(
@@ -272,15 +271,15 @@ class _MyCheckoutState extends State<MyCheckout> {
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
                               height: 17.58 / 15,
-                              color: Color.fromRGBO(41, 41, 41, 1),
+                              color: const Color.fromRGBO(41, 41, 41, 1),
                             ),
                           ),
                           Container(
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Color.fromRGBO(249, 249, 249, 1),
                             ),
                             // margin: EdgeInsets.all(10),
-                            padding: EdgeInsets.all(16),
+                            padding: const EdgeInsets.all(16),
                             height: 160,
                             width: 358,
                             child: Column(
@@ -296,7 +295,7 @@ class _MyCheckoutState extends State<MyCheckout> {
                                         fontSize: 15,
                                         fontWeight: FontWeight.w500,
                                         height: 17.58 / 15,
-                                        color: Color.fromRGBO(85, 85, 85, 1),
+                                        color: const Color.fromRGBO(85, 85, 85, 1),
                                       ),
                                     ),
                                     Text('₦ ${subtotal.toStringAsFixed(2)}'),
@@ -312,7 +311,7 @@ class _MyCheckoutState extends State<MyCheckout> {
                                         fontSize: 15,
                                         fontWeight: FontWeight.w500,
                                         height: 17.58 / 15,
-                                        color: Color.fromRGBO(85, 85, 85, 1),
+                                        color: const Color.fromRGBO(85, 85, 85, 1),
                                       ),
                                     ),
                                     Text('₦ ${deliveryFee.toStringAsFixed(2)}'),
@@ -328,13 +327,13 @@ class _MyCheckoutState extends State<MyCheckout> {
                                         fontSize: 15,
                                         fontWeight: FontWeight.w500,
                                         height: 17.58 / 15,
-                                        color: Color.fromRGBO(85, 85, 85, 1),
+                                        color: const Color.fromRGBO(85, 85, 85, 1),
                                       ),
                                     ),
-                                    Text('₦ 0.00'),
+                                    const Text('₦ 0.00'),
                                   ],
                                 ),
-                                Divider(),
+                                const Divider(),
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
@@ -345,7 +344,7 @@ class _MyCheckoutState extends State<MyCheckout> {
                                         fontSize: 15,
                                         fontWeight: FontWeight.w500,
                                         height: 17.58 / 15,
-                                        color: Color.fromRGBO(85, 85, 85, 1),
+                                        color: const Color.fromRGBO(85, 85, 85, 1),
                                       ),
                                     ),
                                     Text('₦ ${total.toStringAsFixed(2)}'),
@@ -362,7 +361,7 @@ class _MyCheckoutState extends State<MyCheckout> {
               ),
             ),
           ),
-          Container(
+          SizedBox(
             height: 82,
             width: 390,
             child: Row(
@@ -383,7 +382,7 @@ class _MyCheckoutState extends State<MyCheckout> {
                           padding: EdgeInsets.only(
                             bottom: MediaQuery.of(context).viewInsets.bottom,
                           ),
-                          child: MyPayment(),
+                          child: const MyPayment(),
                         ),
                       ),
                     );

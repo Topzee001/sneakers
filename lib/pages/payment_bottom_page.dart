@@ -63,7 +63,7 @@ class _MyPaymentState extends State<MyPayment> {
               })
           .toList(),
       'totalPrice': cartProvider.totalPrice,
-      // 'timestamp':
+      'timestamp': DateTime.now(),
     };
 
     await _myBox.put('orders', orders);
@@ -81,7 +81,7 @@ class _MyPaymentState extends State<MyPayment> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
       decoration: BoxDecoration(
-        color: Color.fromRGBO(255, 255, 255, 1),
+        color: const Color.fromRGBO(255, 255, 255, 1),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(16.0.r),
           topRight: Radius.circular(16.0.r),

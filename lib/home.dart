@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sneakers/constants/svg_icons.dart';
@@ -42,7 +44,7 @@ class _MyHomeState extends State<MyHome> {
 
   Color _iconColor(int index) {
     return _selectedIndex == index
-        ? Color.fromRGBO(0, 144, 198, 1)
+        ? const Color.fromRGBO(0, 144, 198, 1)
         : Colors.grey;
   }
 
@@ -76,7 +78,7 @@ class _MyHomeState extends State<MyHome> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Color.fromRGBO(0, 114, 198, 1),
+        selectedItemColor: const Color.fromRGBO(0, 114, 198, 1),
         unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
         type: BottomNavigationBarType.fixed,

@@ -5,9 +5,9 @@ import '../services/product_service.dart';
 
 class CartProvider with ChangeNotifier {
   List<Sneaker> _products = [];
-  List<Sneaker> _favourites = [];
+  final List<Sneaker> _favourites = [];
 
-  Map<String, CartItem> _cartItems = {};
+  final Map<String, CartItem> _cartItems = {};
   bool _isLoading = false;
   String? _errorMessage;
 

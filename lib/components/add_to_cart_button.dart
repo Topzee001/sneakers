@@ -20,7 +20,7 @@ class AddToCart extends StatelessWidget {
             height: 42,
             width: 141,
             decoration: BoxDecoration(
-              color: Color.fromRGBO(0, 114, 198, 1),
+              color: const Color.fromRGBO(0, 114, 198, 1),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -29,7 +29,7 @@ class AddToCart extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 16.0),
                   child: SvgPicture.string(SvgIcons.cartIcon),
                 ),
-                Spacer(),
+                const Spacer(),
                 Padding(
                   padding: const EdgeInsets.only(right: 16.0),
                   child: Text(
@@ -37,7 +37,7 @@ class AddToCart extends StatelessWidget {
                     style: GoogleFonts.robotoFlex(
                       fontSize: 15,
                       fontWeight: FontWeight.w600,
-                      color: Color.fromRGBO(255, 255, 255, 1),
+                      color: const Color.fromRGBO(255, 255, 255, 1),
                     ),
                   ),
                 ),

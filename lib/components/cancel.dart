@@ -13,12 +13,12 @@ class MyCancel extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
         child: Container(
             height: 42,
             width: 79,
             decoration: BoxDecoration(
-              color: Color.fromRGBO(249, 249, 249, 1),
+              color: const Color.fromRGBO(249, 249, 249, 1),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Center(
@@ -28,7 +28,7 @@ class MyCancel extends StatelessWidget {
                   fontSize: 15,
                   fontWeight: FontWeight.w500,
                   height: 17.58 / 15,
-                  color: Color.fromRGBO(42, 42, 42, 1),
+                  color: const Color.fromRGBO(42, 42, 42, 1),
                 ),
               ),
             )),

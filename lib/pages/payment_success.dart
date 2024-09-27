@@ -23,17 +23,17 @@ class MyPaymentSuccess extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
           width: 390.w,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
+              SizedBox(
                 width: 350,
                 child: Column(
                   children: [
                     Image.asset('assets/payment_success.png'),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Text(
                       'Payment successful',
                       textAlign: TextAlign.center,
@@ -41,10 +41,10 @@ class MyPaymentSuccess extends StatelessWidget {
                         fontSize: 19,
                         fontWeight: FontWeight.w500,
                         height: 22.27 / 19,
-                        color: Color.fromRGBO(41, 41, 41, 1),
+                        color: const Color.fromRGBO(41, 41, 41, 1),
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Text(
                       'You have successfully placed an order. Details of your order is in your order history.',
                       textAlign: TextAlign.center,
@@ -52,13 +52,13 @@ class MyPaymentSuccess extends StatelessWidget {
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
                         height: 17.58 / 15,
-                        color: Color.fromRGBO(112, 112, 112, 1),
+                        color: const Color.fromRGBO(112, 112, 112, 1),
                       ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               MyBottomContainer1(
                 text: 'OK',
                 onTap: () {

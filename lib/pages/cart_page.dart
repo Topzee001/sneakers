@@ -33,7 +33,7 @@ class MyCart extends StatelessWidget {
               fontSize: 19,
               fontWeight: FontWeight.w600,
               height: 22.27 / 19,
-              color: Color.fromRGBO(41, 41, 41, 1),
+              color: const Color.fromRGBO(41, 41, 41, 1),
             ),
           ),
         ),
@@ -77,7 +77,8 @@ class MyCart extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     width: 390,
-                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 12, vertical: 16),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -89,7 +90,7 @@ class MyCart extends StatelessWidget {
                               style: GoogleFonts.robotoFlex(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w400,
-                                color: Color.fromRGBO(157, 157, 157, 1),
+                                color: const Color.fromRGBO(157, 157, 157, 1),
                               ),
                             ),
                             //Text('₦ ${widget.product.price.toStringAsFixed(2)}'),
@@ -105,7 +106,7 @@ class MyCart extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => MyCheckout(),
+                                  builder: (context) => const MyCheckout(),
                                 ));
                           },
                         )

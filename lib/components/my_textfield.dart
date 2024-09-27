@@ -7,12 +7,12 @@ class MyTextField extends StatelessWidget {
   final TextInputType? keyboardType;
 
   const MyTextField({
-    Key? key,
+    super.key,
     required this.controller,
     required this.labelText,
     this.maxLines,
     this.keyboardType,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +34,11 @@ class MyTextField extends StatelessWidget {
             ),
           ),
           labelText: labelText,
-          labelStyle: TextStyle(
+          labelStyle: const TextStyle(
             color: Color.fromRGBO(157, 157, 157, 1),
           ),
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
-          contentPadding: EdgeInsets.symmetric(horizontal: 16),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 16),
         ),
       ),
     );

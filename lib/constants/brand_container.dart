@@ -10,8 +10,8 @@ class BrandContainer extends StatelessWidget {
   const BrandContainer({
     required this.svgIcon,
     required this.brandName,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,18 +22,18 @@ class BrandContainer extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            constraints: BoxConstraints(
+            constraints: const BoxConstraints(
               minWidth: 42,
               minHeight: 64,
             ),
-            padding: EdgeInsets.all(4),
+            padding: const EdgeInsets.all(4),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: Color.fromRGBO(249, 249, 249, 1),
+                    color: const Color.fromRGBO(249, 249, 249, 1),
                     borderRadius: BorderRadius.circular(40),
                   ),
                   width: 42,

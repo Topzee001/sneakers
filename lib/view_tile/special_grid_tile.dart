@@ -54,7 +54,7 @@ class GridViewTile extends StatelessWidget {
                       aspectRatio: 1,
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Color.fromRGBO(234, 234, 234, 0.4),
+                          color: const Color.fromRGBO(234, 234, 234, 0.4),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         padding: const EdgeInsets.all(10),
@@ -63,7 +63,7 @@ class GridViewTile extends StatelessWidget {
                           placeholder: (context, url) =>
                               const Center(child: CircularProgressIndicator()),
                           errorWidget: (context, url, error) =>
-                              Icon(Icons.shop),
+                              const Icon(Icons.shop),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -90,7 +90,7 @@ class GridViewTile extends StatelessWidget {
                     Row(
                       children: [
                         SvgPicture.string(SvgIcons.star),
-                        Text('4.5(100 sold)')
+                        const Text('4.5(100 sold)')
                       ],
                     ),
                   ],
@@ -103,7 +103,7 @@ class GridViewTile extends StatelessWidget {
                         Text(
                           '₦ ${product.price.toStringAsFixed(2)}',
                           style: GoogleFonts.robotoFlex(
-                            color: Color.fromRGBO(0, 114, 198, 1),
+                            color: const Color.fromRGBO(0, 114, 198, 1),
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
                             height: 14.06 / 12,
@@ -113,7 +113,7 @@ class GridViewTile extends StatelessWidget {
                           '₦${(product.price + 10000).toStringAsFixed(2)}',
                           style: GoogleFonts.robotoFlex(
                             decoration: TextDecoration.lineThrough,
-                            color: Color.fromRGBO(157, 157, 157, 1),
+                            color: const Color.fromRGBO(157, 157, 157, 1),
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
                             height: 14.06 / 12,

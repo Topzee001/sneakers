@@ -59,7 +59,7 @@ class _MySingleProductPageState extends State<MySingleProductPage> {
     // allProducts.shuffle(random);
     // double itemTotal = cartProvider.products.price;
     if (sneaker == null) {
-      return Scaffold(
+      return const Scaffold(
         body: Center(child: Text('Sneaker not found')),
       );
     }
@@ -74,7 +74,7 @@ class _MySingleProductPageState extends State<MySingleProductPage> {
               children: [
                 Container(
                   margin: const EdgeInsets.all(10),
-                  color: Color.fromRGBO(255, 253, 253, 1),
+                  color: const Color.fromRGBO(255, 253, 253, 1),
                   height: 399,
                   width: 390,
                   child: AspectRatio(
@@ -87,7 +87,7 @@ class _MySingleProductPageState extends State<MySingleProductPage> {
                         imageUrl: widget.product.imageUrl,
                         placeholder: (context, url) =>
                             const Center(child: CircularProgressIndicator()),
-                        errorWidget: (context, url, error) => Icon(Icons.shop),
+                        errorWidget: (context, url, error) => const Icon(Icons.shop),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -140,10 +140,10 @@ class _MySingleProductPageState extends State<MySingleProductPage> {
                               style: GoogleFonts.robotoFlex(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w500,
-                                color: Color.fromRGBO(85, 85, 85, 1),
+                                color: const Color.fromRGBO(85, 85, 85, 1),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 5,
                             ),
                             SvgPicture.string(SvgIcons.star),
@@ -155,12 +155,12 @@ class _MySingleProductPageState extends State<MySingleProductPage> {
                               style: GoogleFonts.robotoFlex(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w500,
-                                color: Color.fromRGBO(85, 85, 85, 1),
+                                color: const Color.fromRGBO(85, 85, 85, 1),
                               ),
                             )
                           ],
                         ),
-                        Container(
+                        SizedBox(
                           width: 358,
                           height: 18,
                           child: Text(
@@ -168,7 +168,7 @@ class _MySingleProductPageState extends State<MySingleProductPage> {
                             style: GoogleFonts.robotoFlex(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w500,
-                                color: Color.fromRGBO(42, 42, 42, 1),
+                                color: const Color.fromRGBO(42, 42, 42, 1),
                                 height: 17.58 / 15),
                           ),
                         ),
@@ -178,11 +178,11 @@ class _MySingleProductPageState extends State<MySingleProductPage> {
                             height: 17.58 / 15,
                             fontSize: 15,
                             fontWeight: FontWeight.w400,
-                            color: Color.fromRGBO(85, 85, 85, 1),
+                            color: const Color.fromRGBO(85, 85, 85, 1),
                           ),
                         ),
                         const SizedBox(height: 8),
-                        Container(
+                        SizedBox(
                           width: 358,
                           height: 18,
                           child: Text(
@@ -190,11 +190,11 @@ class _MySingleProductPageState extends State<MySingleProductPage> {
                             style: GoogleFonts.robotoFlex(
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
-                              color: Color.fromRGBO(42, 42, 42, 1),
+                              color: const Color.fromRGBO(42, 42, 42, 1),
                             ),
                           ),
                         ),
-                        Container(
+                        SizedBox(
                           width: 358,
                           height: 26,
                           //margin: EdgeInsets.symmetric(horizontal: 4),
@@ -223,11 +223,11 @@ class _MySingleProductPageState extends State<MySingleProductPage> {
                                                 Colors.white.withOpacity(0.1),
                                             spreadRadius: 5,
                                             blurRadius: 7,
-                                            offset: Offset(0, 3))
+                                            offset: const Offset(0, 3))
                                       ],
                                       color: selectedSize == index
                                           ? Colors.blue
-                                          : Color.fromRGBO(249, 249, 249, 1),
+                                          : const Color.fromRGBO(249, 249, 249, 1),
                                     ),
                                     child: Padding(
                                       padding: const EdgeInsets.symmetric(
@@ -236,7 +236,7 @@ class _MySingleProductPageState extends State<MySingleProductPage> {
                                           ? Center(
                                               child: Text(
                                                 sizes[index],
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                   fontWeight: FontWeight.w400,
                                                   fontSize: 15,
                                                   color: Color.fromRGBO(
@@ -247,7 +247,7 @@ class _MySingleProductPageState extends State<MySingleProductPage> {
                                           : Center(
                                               child: Text(
                                                 sizes[index],
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     color: Color.fromRGBO(
                                                         85, 85, 85, 1),
                                                     fontWeight: FontWeight.w400,
@@ -264,7 +264,7 @@ class _MySingleProductPageState extends State<MySingleProductPage> {
                           ),
                         ),
                         const SizedBox(height: 3),
-                        Container(
+                        SizedBox(
                           height: 18,
                           width: 358,
                           child: Text(
@@ -272,14 +272,14 @@ class _MySingleProductPageState extends State<MySingleProductPage> {
                             style: GoogleFonts.robotoFlex(
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
-                              color: Color.fromRGBO(42, 42, 42, 1),
+                              color: const Color.fromRGBO(42, 42, 42, 1),
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 2,
                         ),
-                        Container(
+                        SizedBox(
                           height: 24,
                           width: 358,
                           child: Row(
@@ -292,28 +292,28 @@ class _MySingleProductPageState extends State<MySingleProductPage> {
                                   });
                                 },
                                 child: Container(
-                                  margin: EdgeInsets.only(right: 12),
+                                  margin: const EdgeInsets.only(right: 12),
                                   height: 24,
                                   width: 25,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(4),
                                       color: productColor.color[index]),
                                   child: selectedColor == index
-                                      ? Center(
+                                      ? const Center(
                                           child: Icon(
                                             Icons.check,
                                             color: Colors.white,
                                             size: 15,
                                           ),
                                         )
-                                      : SizedBox.shrink(),
+                                      : const SizedBox.shrink(),
                                 ),
                               );
                             }),
                           ),
                         ),
                         const SizedBox(height: 8),
-                        Container(
+                        SizedBox(
                           height: 18,
                           width: 358,
                           child: Text(
@@ -321,14 +321,14 @@ class _MySingleProductPageState extends State<MySingleProductPage> {
                             style: GoogleFonts.robotoFlex(
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
-                              color: Color.fromRGBO(42, 42, 42, 1),
+                              color: const Color.fromRGBO(42, 42, 42, 1),
                             ),
                           ),
                         ),
                         Container(
                           // padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                           decoration: BoxDecoration(
-                            color: Color.fromRGBO(249, 249, 249, 1),
+                            color: const Color.fromRGBO(249, 249, 249, 1),
                             borderRadius: BorderRadius.circular(4),
                           ),
                           height: 34,
@@ -340,14 +340,14 @@ class _MySingleProductPageState extends State<MySingleProductPage> {
                                 IconButton(
                                   iconSize: 10.67,
                                   onPressed: reduceQuantity,
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.remove,
                                     size: 16,
                                   ),
                                 ),
                                 //quantity
                                 Container(
-                                  color: Color.fromRGBO(0, 114, 198, 0.12),
+                                  color: const Color.fromRGBO(0, 114, 198, 0.12),
                                   width: 25,
                                   height: 26,
                                   child: Center(
@@ -360,7 +360,7 @@ class _MySingleProductPageState extends State<MySingleProductPage> {
                                 IconButton(
                                   iconSize: 10.67,
                                   onPressed: addQuantity,
-                                  icon: Icon(Icons.add, size: 16),
+                                  icon: const Icon(Icons.add, size: 16),
                                 ),
                               ],
                             ),
@@ -374,14 +374,14 @@ class _MySingleProductPageState extends State<MySingleProductPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      margin: EdgeInsets.only(left: 20),
+                      margin: const EdgeInsets.only(left: 20),
                       width: 189,
                       height: 28,
                       alignment: Alignment.centerLeft,
                       child: Text(
                         "More from Ego",
                         style: GoogleFonts.robotoFlex(
-                          color: Color.fromRGBO(0, 0, 0, 1),
+                          color: const Color.fromRGBO(0, 0, 0, 1),
                           fontSize: 24,
                           fontWeight: FontWeight.w500,
                           height: 28.13 / 24,
@@ -392,7 +392,7 @@ class _MySingleProductPageState extends State<MySingleProductPage> {
                     cartProvider.isLoading
                         ? const Center(child: CircularProgressIndicator())
                         : GridView.builder(
-                            physics: NeverScrollableScrollPhysics(),
+                            physics: const NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
                             gridDelegate:
                                 const SliverGridDelegateWithFixedCrossAxisCount(
@@ -438,7 +438,7 @@ class _MySingleProductPageState extends State<MySingleProductPage> {
               borderRadius: BorderRadius.circular(10),
             ),
             width: 390,
-            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -450,7 +450,7 @@ class _MySingleProductPageState extends State<MySingleProductPage> {
                       style: GoogleFonts.robotoFlex(
                         fontSize: 12,
                         fontWeight: FontWeight.w400,
-                        color: Color.fromRGBO(157, 157, 157, 1),
+                        color: const Color.fromRGBO(157, 157, 157, 1),
                       ),
                     ),
                     //Text('₦ ${widget.product.price.toStringAsFixed(2)}'),

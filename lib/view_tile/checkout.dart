@@ -7,11 +7,11 @@ import '../model/product.dart';
 
 class MyCheckoutTile extends StatelessWidget {
   const MyCheckoutTile({
-    Key? key,
+    super.key,
     required this.product,
     required this.cartItem,
     required this.sneakerId,
-  }) : super(key: key);
+  });
 
   final Sneaker product;
   final String sneakerId;
@@ -35,31 +35,31 @@ class MyCheckoutTile extends StatelessWidget {
               imageUrl: product.imageUrl,
               placeholder: (context, url) =>
                   const Center(child: CircularProgressIndicator()),
-              errorWidget: (context, url, error) => Icon(Icons.shop),
+              errorWidget: (context, url, error) => const Icon(Icons.shop),
               fit: BoxFit.cover,
               height: 120,
             ),
           ),
           title: Container(
-            margin: EdgeInsets.symmetric(horizontal: 8),
+            margin: const EdgeInsets.symmetric(horizontal: 8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   product.name,
                   style: GoogleFonts.robotoFlex(
-                    color: Color.fromRGBO(42, 42, 42, 1),
+                    color: const Color.fromRGBO(42, 42, 42, 1),
                     fontSize: 15,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
                 Row(
                   children: [
                     Text(
                       'Color: ',
                       style: GoogleFonts.robotoFlex(
-                        color: Color.fromRGBO(85, 85, 85, 1),
+                        color: const Color.fromRGBO(85, 85, 85, 1),
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
                       ),
@@ -72,11 +72,11 @@ class MyCheckoutTile extends StatelessWidget {
                         color: cartItem.color,
                       ),
                     ),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                     Text(
                       'Size: ${cartItem.size}',
                       style: GoogleFonts.robotoFlex(
-                        color: Color.fromRGBO(42, 42, 42, 1),
+                        color: const Color.fromRGBO(42, 42, 42, 1),
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
                       ),
@@ -101,7 +101,7 @@ class MyCheckoutTile extends StatelessWidget {
                 style: GoogleFonts.robotoFlex(
                   fontSize: 15,
                   fontWeight: FontWeight.w500,
-                  color: Color.fromRGBO(42, 42, 42, 1),
+                  color: const Color.fromRGBO(42, 42, 42, 1),
                 ),
               ),
             ],

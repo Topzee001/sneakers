@@ -16,7 +16,7 @@ class MyContainerButton extends StatelessWidget {
           width: 350,
           height: 42,
           decoration: BoxDecoration(
-            color: Color.fromRGBO(0, 114, 198, 1),
+            color: const Color.fromRGBO(0, 114, 198, 1),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Center(
@@ -25,7 +25,7 @@ class MyContainerButton extends StatelessWidget {
               style: GoogleFonts.robotoFlex(
                 fontSize: 15,
                 fontWeight: FontWeight.w500,
-                color: Color.fromRGBO(255, 255, 255, 1),
+                color: const Color.fromRGBO(255, 255, 255, 1),
               ),
             ),
           ),
